@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerHeight = navbar?.offsetHeight || 80;
         const targetTop = targetElement.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
-          top: Math.max(targetTop - headerHeight - 8, 0),
+          top: Math.max(targetTop - headerHeight, 0),
           behavior: 'smooth'
         });
         
@@ -185,6 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "contact-label": "Contactos",
       "contact-hours-label": "Horário",
       "contact-closed": "Encerrados Domingos e Feriados",
+      "contact-fixed-legal": "Chamada para rede fixa nacional",
+      "contact-mobile-legal": "Chamada para rede móvel nacional",
       "contact-follow-label": "Siga-nos",
       "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. Todos os direitos reservados."
     },
@@ -259,6 +261,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "contact-label": "Contacts",
       "contact-hours-label": "Opening Hours",
       "contact-closed": "Closed on Sundays and Holidays",
+      "contact-fixed-legal": "Call to national landline network",
+      "contact-mobile-legal": "Call to national mobile network",
       "contact-follow-label": "Follow Us",
       "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. All rights reserved."
     }
