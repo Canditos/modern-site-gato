@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerHeight = navbar?.offsetHeight || 80;
         const targetTop = targetElement.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
-          top: Math.max(targetTop - headerHeight - 24, 0),
+          top: Math.max(targetTop - headerHeight - 8, 0),
           behavior: 'smooth'
         });
         

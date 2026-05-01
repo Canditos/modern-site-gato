@@ -351,7 +351,7 @@ a {
 
 /* Services */
 .services {
-  padding: 100px 0;
+  padding: 60px 0 100px 0;
   background: white;
 }
 
@@ -415,7 +415,7 @@ a {
 
 /* Team */
 .team {
-  padding: 100px 0;
+  padding: 60px 0 100px 0;
   background: var(--bg-color);
 }
 
@@ -507,7 +507,7 @@ a {
 
 /* Contacts Section Modern */
 .contact {
-  padding: 100px 0;
+  padding: 60px 0 100px 0;
   background: var(--bg-color);
 }
 
@@ -712,7 +712,7 @@ a {
 
 /* EspaÃ§o Auto-Fading Slider */
 .espaco {
-  padding: 100px 0;
+  padding: 60px 0 100px 0;
   background: white;
 }
 
@@ -1342,7 +1342,7 @@ a {
 
 /* Instagram Section */
 .instagram {
-  padding: 100px 0;
+  padding: 60px 0 100px 0;
   background: white;
 }
 
