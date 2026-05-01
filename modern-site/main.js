@@ -70,8 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
+        const headerHeight = navbar?.offsetHeight || 80;
+        const targetTop = targetElement.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
-          top: targetElement.offsetTop - 80, // Adjust for navbar height
+          top: Math.max(targetTop - headerHeight - 24, 0),
           behavior: 'smooth'
         });
         
@@ -80,6 +82,23 @@ document.addEventListener('DOMContentLoaded', () => {
         this.classList.add('active');
       }
     });
+  });
+
+  // Touch-friendly team cards: avoid sticky mobile hover states.
+  document.querySelectorAll('.team-card').forEach(card => {
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('.view-more-btn')) return;
+      if (!window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+      document.querySelectorAll('.team-card.hover').forEach(openCard => {
+        if (openCard !== card) openCard.classList.remove('hover');
+      });
+      card.classList.toggle('hover');
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.team-card')) return;
+    document.querySelectorAll('.team-card.hover').forEach(card => card.classList.remove('hover'));
   });
 
   // Navbar background change on scroll
@@ -105,9 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const translations = {
     pt: {
       "nav-home": "Início", "nav-services": "Serviços", "nav-space": "O Espaço", "nav-team": "Equipa", "nav-contacts": "Contactos",
-      "book-btn": "📞 Marcar Consulta", "hero-title": "Cuidamos do seu Gato com Amor e Especialização",
+      "book-btn": "📞 Marcar Consulta", "hero-title-line-1": "Clínica Veterinária", "hero-title-line-2": "Gato Escondido",
       "hero-desc": "Bem vindos à nossa clínica em Palmela, onde pode encontrar o médico de família do seu animal.",
-      "hero-call": "📞 Ligar Agora (963 349 053)", "hero-view": "Ver Serviços", "services-title": "Os Nossos Serviços",
+      "hero-call": "📞 Ligar Agora", "hero-view": "Ver Serviços", "services-title": "Os Nossos Serviços",
       "team-title": "A Nossa Equipa", "modal-book-main": "Marcar Consulta", "modal-book-choice": "Como prefere contactar-nos?",
       "modal-book-call": "Ligar", "modal-book-wa": "WhatsApp", "modal-book-back": "← Voltar", "view-more": "Ver Mais", "read-more": "Saber mais",
       "svc-rec-title": "Receção & Petshop", "svc-rec-desc": "A entrada da nossa casa. É no balcão da receção que pode falar com as nossas auxiliares para colocar as suas dúvidas, fazer a marcação de consultas ou adquirir produtos de venda livre para a saúde do seu animal (tais como alimentação húmida ou seca, brinquedos e nutracêuticos não sujeitos a receita médica veterinária). Logo neste balcão começa o melhor aconselhamento para a saúde do seu animal.",
@@ -126,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "svc-int-short": "Boxes 'catfriendly' com fluidoterapia e medicação em regime diurno.",
       "svc-eco-title": "Ecografia Abdominal", "svc-eco-desc": "Para situações de emergência e diagnóstico de algumas doenças do foro da cavidade abdominal, dispomos de um ecografo e pessoal em formação contínua nesta área. Em certas situações como infeções uterinas, deteção de massas ou diagnóstico de gestação, a ecografia abdominal é o exame complementar de diagnóstico mais indicado.",
       "svc-eco-short": "Emergências, gestação, infeções uterinas e deteção de massas.",
-      "svc-ecg-title": "Eletrocardiograma & Medição Pressão Arterial", "svc-ecg-desc": "Para auxílio de diagnóstico de doença cardíaca e avaliação pré-anestésica, dispomos do serviço de eletrocardiografia. Complementado com medição de pressão arterial, conseguimos fazer a monitorização de alterações da tensão em caso de doença crónica cardíaca e/ou renal, tanto em cães como em gatos.",
+      "svc-ecg-title": "ECG & Pressão Arterial", "svc-ecg-desc": "Para auxílio de diagnóstico de doença cardíaca e avaliação pré-anestésica, dispomos do serviço de eletrocardiografia. Complementado com medição de pressão arterial, conseguimos fazer a monitorização de alterações da tensão em caso de doença crónica cardíaca e/ou renal, tanto em cães como em gatos.",
       "svc-ecg-short": "Avaliação cardíaca e monitorização de tensão arterial.",
       "svc-ort-title": "Ortopedia", "svc-ort-desc": "No nosso espaço dispomos do serviço externo da especialidade de Ortopedia. Tendo em conta a casuística e a exigência necessária para oferecer os melhores cuidados aos nossos pacientes, damos a possibilidade de consulta e cirurgia ortopédica em ambulatório com um Médico Veterinário especialista na área. Sempre que o clínico entender que é o ideal para o caso, será feita a recomendação e posterior marcação da visita do colega especialista ao nosso espaço.",
       "svc-ort-short": "Consultas e cirurgias ortopédicas com especialistas externos.",
@@ -134,8 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
       "svc-odo-short": "Destartarização e cuidados de saúde oral especializados.",
       "svc-exo-title": "Animais Exóticos", "svc-exo-desc": "Para situações de caráter não urgente, seja a nível de consulta ou cirurgia, temos a oportunidade de ter uma Médica Veterinária especialista em animais exóticos a prestar esses serviços em regime de ambulatório. São consultas que prestamos sempre mediante marcação prévia.",
       "svc-exo-short": "Consultas especializadas para companheiros não-tradicionais.",
-      "svc-ban-title": "Banhos e Tosquias", "svc-ban-desc": "Serviço de banhos e tosquias focado no conforto do animal, utilizando produtos adequados para cada tipo de pelo e pele.",
-      "svc-ban-short": "Higiene, banhos terapêuticos e tosquias estéticas ou de saúde.",
       // Team Bio PT
       "team-raquel-role": "Fundadora & Médica Veterinária",
       "team-raquel-bio": "Formada em Medicina Veterinária na faculdade FMV-UL em 2011 e fundadora da Clínica Gato Escondido em 2016. Tem como áreas de maior interesse a citologia, cirurgia e gestão.",
@@ -156,6 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Sections PT
       "space-title": "O Nosso Espaço",
       "space-desc": "Um espaço moderno, acolhedor e totalmente equipado para o bem-estar do seu animal de companhia.",
+      "reviews-title": "O Que Dizem Sobre Nós",
+      "reviews-subtitle": "Críticas reais de clientes que confiam a saúde dos seus animais ao Gato Escondido.",
+      "reviews-source": "Fonte: críticas públicas online",
       "insta-subtitle": "Clínica Veterinária em Palmela",
       "insta-follow": "Seguir",
       "insta-loading": "A carregar momentos...",
@@ -166,64 +186,70 @@ document.addEventListener('DOMContentLoaded', () => {
       "contact-hours-label": "Horário",
       "contact-closed": "Encerrados Domingos e Feriados",
       "contact-follow-label": "Siga-nos",
-      "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. Todos os direitos reservados.",
-      "reviews-title": "O que dizem os nossos clientes",
-      "reviews-count": "Baseado em 39 avaliações",
-      "reviews-cta": "⭐ Deixe a sua avaliação"
+      "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. Todos os direitos reservados."
     },
     en: {
       "nav-home": "Home", "nav-services": "Services", "nav-space": "The Space", "nav-team": "Team", "nav-contacts": "Contacts",
-      "book-btn": "📞 Book Appointment", "hero-title": "Expert Feline Care with Love",
+      "book-btn": "📞 Book Appointment", "hero-title-line-1": "Veterinary Clinic", "hero-title-line-2": "Gato Escondido",
       "hero-desc": "Welcome to our clinic in Palmela, where you'll find your pet's family doctor.",
-      "hero-call": "📞 Call Now (963 349 053)", "hero-view": "View Services", "services-title": "Our Services",
+      "hero-call": "📞 Call Now", "hero-view": "View Services", "services-title": "Our Services",
       "team-title": "Our Team", "modal-book-main": "Book Appointment", "modal-book-choice": "How would you like to contact us?",
       "modal-book-call": "Call", "modal-book-wa": "WhatsApp", "modal-book-back": "← Back", "view-more": "See More", "read-more": "Read More",
-      "svc-rec-title": "Reception & Petshop", "svc-rec-desc": "Our reception is where you can talk to our assistants, book appointments, or purchase over-the-counter health products.",
+      "svc-rec-title": "Reception & Petshop", "svc-rec-desc": "The entrance to our home. At the reception desk you can speak with our assistants to ask questions, book appointments, or purchase over-the-counter products for your animal's health, such as wet or dry food, toys, and nutraceuticals that do not require a veterinary prescription. The best advice for your animal's health starts right at this counter.",
       "svc-rec-short": "Food, toys and nutraceuticals with specialized advice.",
-      "svc-prev-title": "Preventive Medicine", "svc-prev-desc": "Prevention is key to a long and happy life. We provide vaccinations, microchipping, passports, and physical exams.",
+      "svc-prev-title": "Preventive Medicine", "svc-prev-desc": "There is nothing like preventing disease to give our patients long and happy lives. Preventive Medicine appointments include services such as vaccination, microchip placement and registration, issuing health booklets and passports, and internal and external deworming. These appointments always include a careful physical examination to make sure your animal is in perfect health. Take the opportunity to ask the Veterinarian all your questions.",
       "svc-prev-short": "Vaccination, microchip, deworming and health bulletins.",
-      "svc-gen-title": "General Practice", "svc-gen-desc": "A multidisciplinary team dedicated to providing the best care through personalized diagnostic plans.",
+      "svc-gen-title": "General Practice", "svc-gen-desc": "When you notice any change in your animal's health, you should bring them in as soon as possible to be seen by a Veterinarian. The consultation is when we can perform a complete physical examination, speak personally with guardians, and follow personalized diagnostic and treatment plans. Every patient is different and every case is unique. We have a multidisciplinary clinical team available, always working to provide the best care.",
       "svc-gen-short": "Full physical exam, diagnosis and personalized treatments.",
-      "svc-ana-title": "Clinical Analysis", "svc-ana-desc": "In-house technology for immediate blood work, essential for chronic disease monitoring and urgent diagnostics.",
+      "svc-ana-title": "Clinical Analysis", "svc-ana-desc": "We have technology that allows us to perform a variety of blood tests on the spot, including blood counts, serum biochemistry, and hormonal tests. Depending on the situation, the Veterinarian may recommend collecting a blood sample from the patient to look for important answers for diagnosis, treatment planning, and monitoring chronic diseases.",
       "svc-ana-short": "Blood tests and biochemistry performed on site for fast diagnosis.",
-      "svc-lab-title": "Laboratory", "svc-lab-desc": "We perform urinalysis, fungal cultures (DTM), and cytology to identify bacteria and fungi for precise treatment.",
+      "svc-lab-title": "Laboratory", "svc-lab-desc": "In our laboratory, in addition to blood tests, we can also perform Type II urinalysis, DTM fungal culture, and cytology. Mainly used in cases of urinary disorders, skin changes, and otitis, these tests are important for identifying cellular, bacterial, and fungal structures that are essential for prescribing the most appropriate treatment.",
       "svc-lab-short": "Urinalysis, Fungal Culture and specialized Cytology.",
-      "svc-cir-title": "Surgery", "svc-cir-desc": "Equipped for volatile anesthesia. We handle everything from sterilizations to complex soft tissue surgeries.",
+      "svc-cir-title": "Surgery", "svc-cir-desc": "With a surgery room equipped with volatile anesthesia, an oxygen concentrator, and an autoclave, we can offer a broad surgical service in our clinic. This ranges from routine spays and neuters to more complex soft tissue surgeries, orthopedics, and dentistry. Guided by constantly updated anesthetic protocols, we aim to provide anesthesia that is as safe as possible and adapted to different ages and health conditions. After prior assessment, the Veterinarian may choose surgery to treat different diseases.",
       "svc-cir-short": "Sterilizations and soft tissue with safe anesthesia and monitoring.",
-      "svc-int-title": "Hospitalization", "svc-int-desc": "Cat-friendly hospitalization boxes designed to offer the most peaceful stay possible during recovery.",
+      "svc-int-title": "Hospitalization", "svc-int-desc": "In more critical situations where fluid therapy and intravenous medication are needed, the patient may need to stay in daytime hospitalization. Our clinic has boxes of different sizes for cats and dogs. Taking into account the specific temperament of felines, our hospitalization follows cat-friendly guidelines to offer our patients the calmest possible stay.",
       "svc-int-short": "'Catfriendly' boxes with fluid therapy and medication during day care.",
-      "svc-eco-title": "Abdominal Ultrasound", "svc-eco-desc": "A vital diagnostic tool for emergencies, mass detection, or pregnancy diagnosis.",
+      "svc-eco-title": "Abdominal Ultrasound", "svc-eco-desc": "For emergency situations and the diagnosis of some diseases of the abdominal cavity, we have an ultrasound machine and staff in continuous training in this area. In certain situations such as uterine infections, mass detection, or pregnancy diagnosis, abdominal ultrasound is the most appropriate complementary diagnostic exam.",
       "svc-eco-short": "Emergencies, pregnancy, uterine infections and mass detection.",
-      "svc-ecg-title": "Electrocardiogram", "svc-ecg-desc": "Aids in diagnosing heart disease and pre-anesthetic evaluation, complemented by blood pressure monitoring.",
+      "svc-ecg-title": "ECG & Blood Pressure", "svc-ecg-desc": "To assist in the diagnosis of heart disease and pre-anesthetic assessment, we provide an electrocardiography service. Complemented by blood pressure measurement, we can monitor blood pressure changes in cases of chronic cardiac and/or kidney disease, both in dogs and cats.",
       "svc-ecg-short": "Cardiac evaluation and blood pressure monitoring.",
-      "svc-ort-title": "Orthopedics", "svc-ort-desc": "External orthopedic service for consultations and complex surgeries with specialized veterinarians.",
+      "svc-ort-title": "Orthopedics", "svc-ort-desc": "At our clinic we provide an external Orthopedics specialty service. Considering the case load and the level of expertise required to offer the best care to our patients, we make outpatient orthopedic consultations and surgery available with a Veterinarian specialized in the area. Whenever the clinician considers it ideal for the case, the recommendation will be made and the specialist colleague's visit to our clinic will then be scheduled.",
       "svc-ort-short": "Orthopedic consultations and surgeries with external specialists.",
-      "svc-odo-title": "Dentistry", "svc-odo-desc": "Scaling and oral health procedures to prevent periodontal disease and ensure feline well-being.",
+      "svc-odo-title": "Dentistry", "svc-odo-desc": "Dentistry is a world within Veterinary Medicine. When the clinical case is more complex and requires dental X-rays, extensive tooth extraction, or removal of complicated oral nodules, we recommend scheduling surgery with a specialist Veterinarian on an outpatient basis. This allows us to perform the assessment, surgery, and post-surgical monitoring in our clinic.",
       "svc-odo-short": "Scaling and specialized oral health care.",
-      "svc-exo-title": "Exotic Animals", "svc-exo-desc": "Specialized consultations for non-traditional companions, ensuring they receive the expert care they need.",
+      "svc-exo-title": "Exotic Animals", "svc-exo-desc": "For non-urgent situations, whether consultations or surgery, we have the opportunity to work with a Veterinarian specialized in exotic animals who provides these services on an outpatient basis. These consultations are always provided by prior appointment.",
       "svc-exo-short": "Specialized consultations for non-traditional companions.",
-      "svc-ban-title": "Baths and Grooming", "svc-ban-desc": "Bathing and grooming services focused on your companion's comfort, using products suited to each coat and skin type.",
-      "svc-ban-short": "Hygiene, therapeutic baths, and grooming for appearance or health.",
       // Team Bio EN
       "team-raquel-role": "Founder & Veterinarian",
       "team-raquel-bio": "Graduated in Veterinary Medicine from FMV-UL in 2011 and founded Clínica Gato Escondido in 2016. Her main interests include cytology, surgery, and management.",
+      "team-raquel-hobbies": "Family adventures, gardening, travelling.",
       "team-marco-role": "Founder & Managing Partner",
       "team-marco-bio": "Graduated in Industrial Automation and Control Engineering. Co-founder of Clínica Gato Escondido. Key role in business management, IT support, and general maintenance.",
+      "team-marco-hobbies": "Family adventures, sports and technology.",
       "team-carla-role": "Clinical Director",
       "team-carla-bio": "Graduated in Veterinary Medicine from FMV-UL in 2013. Has been part of the clinical team since its foundation in 2016. In 2023, she assumed the role of Clinical Director.",
+      "team-carla-hobbies": "Gardening, board games and reading.",
       "team-claudia-role": "Veterinarian",
       "team-claudia-bio": "Graduated in Veterinary Medicine from FMV-UL in 2020. Has been part of the Gato Escondido clinical team since 2021.",
+      "team-claudia-hobbies": "Reading, travelling, painting and music.",
       "team-rita-role": "Veterinarian",
       "team-rita-bio": "Graduated in Veterinary Medicine from FMV-UL in 2015. Joined the clinical team in 2022. Expert in Soft tissue Surgery.",
+      "team-rita-hobbies": "Creative writing, reading and cinema.",
       "team-joao-role": "Veterinarian",
       "team-joao-bio": "Graduated in Veterinary Medicine from Lusófona University in 2022. Joined the Gato Escondido team in 2023.",
+      "team-joao-hobbies": "Cinema, video games and walks.",
       "team-catarina-role": "Veterinary Assistant",
       "team-catarina-bio": "Part of the Gato Escondido team since 2020. She is the main face of our reception, welcoming clients both in person and over the phone.",
+      "team-catarina-hobbies": "Family time, walks and discovering new places.",
       "team-ana-role": "Veterinary Assistant",
       "team-ana-bio": "Completed her Veterinary Assistant course in May 2024. After an internship with us, she is now a full member of the Gato Escondido team.",
+      "team-ana-hobbies": "Family time and leisure outdoors.",
       // Sections EN
       "space-title": "Our Space",
       "space-desc": "A modern, cozy, and fully equipped space for the well-being of your pet.",
+      "reviews-title": "What Clients Say",
+      "reviews-subtitle": "Public reviews from clients who trust Gato Escondido with their animals' care.",
+      "reviews-source": "Source: public online reviews",
       "insta-subtitle": "Veterinary Clinic in Palmela",
       "insta-follow": "Follow",
       "insta-loading": "Loading moments...",
@@ -234,18 +260,73 @@ document.addEventListener('DOMContentLoaded', () => {
       "contact-hours-label": "Opening Hours",
       "contact-closed": "Closed on Sundays and Holidays",
       "contact-follow-label": "Follow Us",
-      "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. All rights reserved.",
-      "reviews-title": "What our clients say",
-      "reviews-count": "Based on 39 reviews",
-      "reviews-cta": "⭐ Leave your review"
+      "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. All rights reserved."
     }
   };
 
   // --- Modal Elements ---
   const teamModal = document.getElementById('teamModal');
   const serviceModal = document.getElementById('serviceModal');
+  const serviceModalImageContainer = serviceModal?.querySelector('.modal-image-container');
   const bookingMainContent = document.getElementById('bookingMainContent');
   const bookingOptions = document.getElementById('bookingOptions');
+  let serviceGalleryTimer;
+
+  const serviceGalleries = {
+    RE: ['RE01.avif', 'RE02.avif', 'RE03.avif', 'RE04.avif', 'RE05.avif'],
+    MP: ['MP01.avif', 'MP02.avif', 'MP03.avif', 'MP04.avif', 'MP05.avif', 'MP06.avif', 'MP07.avif'],
+    CG: ['CG01.avif', 'CG02.avif', 'CG03.avif', 'CG04.avif', 'CG05.avif', 'CG06.avif', 'CG07.avif', 'CG08.avif'],
+    AC: ['AC01.avif', 'AC02.avif', 'AC03.avif'],
+    LAB: ['LAB01.avif', 'LAB02.avif', 'LAB03.avif', 'LAB04.avif'],
+    CI: ['CI01.avif', 'CI02.avif', 'CI03.avif', 'CI04.avif', 'CI05.avif', 'CI06.avif'],
+    INT: ['INT01.avif', 'INT02.avif', 'INT03.avif', 'INT04.avif', 'INT05.avif'],
+    ECO: ['ECO01.avif', 'ECO02.avif', 'ECO03.avif', 'ECO04.avif', 'ECO05.avif'],
+    ECG: ['ECG01.avif', 'ECG02.avif', 'ECG03.avif', 'ECG04.avif'],
+    ORT: ['ORT01.avif', 'ORT02.avif', 'ORT03.avif', 'ORTO04.avif'],
+    DE: ['DE01.avif', 'DE02.avif', 'DE03.avif'],
+    EX: ['EX01.avif', 'EX02.avif']
+  };
+
+  const stopServiceGallery = () => {
+    if (serviceGalleryTimer) {
+      clearInterval(serviceGalleryTimer);
+      serviceGalleryTimer = null;
+    }
+  };
+
+  const renderServiceImage = (src, alt = '') => {
+    stopServiceGallery();
+    if (!serviceModalImageContainer) return;
+
+    serviceModalImageContainer.classList.remove('service-gallery', 'booking-image');
+    serviceModalImageContainer.innerHTML = `<img id="serviceModalImg" class="modal-main-img" src="${src}" alt="${alt}">`;
+  };
+
+  const renderServiceGallery = (galleryKey, fallbackImage, alt = '') => {
+    const filenames = serviceGalleries[galleryKey];
+    const images = filenames?.length
+      ? filenames.map(filename => `/images/Servicos/${filename}`)
+      : [fallbackImage];
+
+    stopServiceGallery();
+    if (!serviceModalImageContainer) return;
+
+    serviceModalImageContainer.classList.remove('booking-image');
+    serviceModalImageContainer.classList.add('service-gallery');
+    serviceModalImageContainer.innerHTML = images.map((src, index) => (
+      `<img class="service-gallery-img${index === 0 ? ' active' : ''}" src="${src}" alt="${alt}" loading="${index === 0 ? 'eager' : 'lazy'}">`
+    )).join('');
+
+    if (images.length < 2) return;
+
+    let activeIndex = 0;
+    const slides = serviceModalImageContainer.querySelectorAll('.service-gallery-img');
+    serviceGalleryTimer = setInterval(() => {
+      slides[activeIndex]?.classList.remove('active');
+      activeIndex = (activeIndex + 1) % slides.length;
+      slides[activeIndex]?.classList.add('active');
+    }, 3600);
+  };
 
   const showBookingOptions = () => {
     bookingMainContent?.classList.add('hidden');
@@ -257,6 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let title = btn.getAttribute('data-title');
     let desc = btn.getAttribute('data-desc');
     const image = btn.getAttribute('data-image');
+    const galleryKey = btn.getAttribute('data-service-gallery');
 
     if (i18nKey && translations[currentLang][`${i18nKey}-title`]) {
       title = translations[currentLang][`${i18nKey}-title`];
@@ -265,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('serviceModalTitle').textContent = title;
     document.getElementById('serviceModalDesc').textContent = desc;
-    document.getElementById('serviceModalImg').src = image;
+    renderServiceGallery(galleryKey, image, title);
     
     // Reset modal state
     bookingMainContent?.classList.remove('hidden');
@@ -286,6 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (i18nKey && translations[currentLang][`team-${i18nKey}-bio`]) {
       role = translations[currentLang][`team-${i18nKey}-role`];
       bio = translations[currentLang][`team-${i18nKey}-bio`];
+      hobbies = translations[currentLang][`team-${i18nKey}-hobbies`] || hobbies;
     }
 
     document.getElementById('modalName').textContent = name;
@@ -305,10 +388,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const teamBtn = e.target.closest('.view-more-btn');
     if (teamBtn) { showTeamModal(teamBtn); return; }
 
-    if (e.target.id === 'navBookBtn') {
+    if (e.target.id === 'navBookBtn' || e.target.id === 'heroBookBtn') {
       document.getElementById('serviceModalTitle').textContent = translations[currentLang]["modal-book-main"];
       document.getElementById('serviceModalDesc').textContent = translations[currentLang]["modal-book-choice"];
-      document.getElementById('serviceModalImg').src = "/images/booking_illustration.png";
+      renderServiceImage('/images/booking_illustration.png', translations[currentLang]["modal-book-main"]);
+      serviceModalImageContainer?.classList.add('booking-image');
       showBookingOptions();
       serviceModal.classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -316,6 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (e.target.classList.contains('close-service-modal') || e.target === serviceModal) {
+      stopServiceGallery();
       serviceModal.classList.remove('show');
       document.body.style.overflow = '';
     }
@@ -330,20 +415,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.id === 'backToBook') {
       bookingMainContent.classList.remove('hidden');
       bookingOptions.classList.add('hidden');
-    }
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-
-    if (serviceModal?.classList.contains('show')) {
-      serviceModal.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-
-    if (teamModal?.classList.contains('show')) {
-      teamModal.classList.remove('show');
-      document.body.style.overflow = '';
     }
   });
 
@@ -401,6 +472,50 @@ document.addEventListener('DOMContentLoaded', () => {
     startSlider();
   }
 
+  // --- Reviews Fade Slider ---
+  const reviewCards = document.querySelectorAll('.review-card');
+  const reviewDots = document.querySelector('.review-dots');
+  let currentReview = 0;
+  let reviewInterval;
+
+  const renderReviewDots = () => {
+    if (!reviewDots) return;
+    reviewDots.innerHTML = '';
+    reviewCards.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = `review-dot${index === currentReview ? ' active' : ''}`;
+      dot.setAttribute('aria-label', `Mostrar crítica ${index + 1}`);
+      dot.addEventListener('click', () => {
+        goToReview(index);
+        startReviews();
+      });
+      reviewDots.appendChild(dot);
+    });
+  };
+
+  const goToReview = (index) => {
+    if (!reviewCards.length) return;
+    reviewCards[currentReview].classList.remove('active');
+    currentReview = (index + reviewCards.length) % reviewCards.length;
+    reviewCards[currentReview].classList.add('active');
+    reviewDots?.querySelectorAll('.review-dot').forEach((dot, dotIndex) => {
+      dot.classList.toggle('active', dotIndex === currentReview);
+    });
+  };
+
+  const startReviews = () => {
+    if (reviewInterval) clearInterval(reviewInterval);
+    reviewInterval = setInterval(() => goToReview(currentReview + 1), 5500);
+  };
+
+  if (reviewCards.length > 0) {
+    renderReviewDots();
+    document.querySelector('.review-next')?.addEventListener('click', () => { goToReview(currentReview + 1); startReviews(); });
+    document.querySelector('.review-prev')?.addEventListener('click', () => { goToReview(currentReview - 1); startReviews(); });
+    startReviews();
+  }
+
   // --- Lightbox Logic ---
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -418,40 +533,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     document.querySelector('.close-lightbox')?.addEventListener('click', hideLightbox);
     lightboxModal.addEventListener('click', (e) => { if (e.target === lightboxModal) hideLightbox(); });
-  }
-
-  // --- Reviews Slider Logic ---
-  const reviewCards = document.querySelectorAll('.review-card');
-  const reviewsDots = document.getElementById('reviewsDots');
-  let currentReview = 0;
-  let reviewInterval;
-
-  if (reviewCards.length > 0 && reviewsDots) {
-    // Create dots
-    reviewCards.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'review-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', `Review ${i + 1}`);
-      dot.addEventListener('click', () => goToReview(i));
-      reviewsDots.appendChild(dot);
-    });
-
-    const goToReview = (index) => {
-      reviewCards[currentReview].classList.remove('active');
-      reviewsDots.children[currentReview].classList.remove('active');
-      currentReview = (index + reviewCards.length) % reviewCards.length;
-      reviewCards[currentReview].classList.add('active');
-      reviewsDots.children[currentReview].classList.add('active');
-    };
-
-    const startReviewSlider = () => {
-      if (reviewInterval) clearInterval(reviewInterval);
-      reviewInterval = setInterval(() => goToReview(currentReview + 1), 5000);
-    };
-
-    document.querySelector('.prev-review')?.addEventListener('click', () => { goToReview(currentReview - 1); startReviewSlider(); });
-    document.querySelector('.next-review')?.addEventListener('click', () => { goToReview(currentReview + 1); startReviewSlider(); });
-    startReviewSlider();
   }
 
   // Reveal Animation

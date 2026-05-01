@@ -2,7 +2,7 @@
 <html lang="pt-PT">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clínica Veterinária Gato Escondido - Palmela</title>
     <!-- Modern Typography -->
@@ -23,16 +23,16 @@
           <a href="#contactos" data-i18n="nav-contacts">Contactos</a>
         </nav>
         <div class="nav-actions">
-          <div class="language-switcher">
-            <button class="lang-btn active" data-lang="pt">
-              <svg class="flag-icon" viewBox="0 0 640 480"><path fill="#ff0000" d="M0 0h640v480H0z"/><path fill="#006600" d="M0 0h256v480H0z"/><circle cx="256" cy="240" r="120" fill="#ffff00"/><path fill="#ff0000" d="M236 170h40v140h-40z"/><path fill="#000080" d="M241 190h30v100h-30z"/></svg>
-              PT
-            </button>
-            <button class="lang-btn" data-lang="en">
-              <svg class="flag-icon" viewBox="0 0 640 480"><path fill="#012169" d="M0 0h640v480H0z"/><path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 240l240 178v62h-78L320 301 78 480H0v-62l240-178L0 62V0h75z"/><path fill="#C8102E" d="m424 281 216 159v40L369 281h55zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-54L0 30V0zm0 480 249-184-2 43L48 480H0z"/><path fill="#FFF" d="M241 0v480h158V0H241zM0 161v158h640V161H0z"/><path fill="#C8102E" d="M281 0v480h78V0h-78zM0 201v78h640v-78H0z"/></svg>
-              EN
-            </button>
-          </div>
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="pt">
+            <svg class="flag-icon" viewBox="0 0 640 480"><path fill="#ff0000" d="M0 0h640v480H0z"/><path fill="#006600" d="M0 0h256v480H0z"/><circle cx="256" cy="240" r="120" fill="#ffff00"/><path fill="#ff0000" d="M236 170h40v140h-40z"/><path fill="#000080" d="M241 190h30v100h-30z"/></svg>
+            PT
+          </button>
+          <button class="lang-btn" data-lang="en">
+            <svg class="flag-icon" viewBox="0 0 640 480"><path fill="#012169" d="M0 0h640v480H0z"/><path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 240l240 178v62h-78L320 301 78 480H0v-62l240-178L0 62V0h75z"/><path fill="#C8102E" d="m424 281 216 159v40L369 281h55zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-54L0 30V0zm0 480 249-184-2 43L48 480H0z"/><path fill="#FFF" d="M241 0v480h158V0H241zM0 161v158h640V161H0z"/><path fill="#C8102E" d="M281 0v480h78V0h-78zM0 201v78h640v-78H0z"/></svg>
+            EN
+          </button>
+        </div>
           <div class="header-socials">
             <a href="https://www.facebook.com/gatoescondido.vet/" target="_blank" class="header-social-link fb">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -56,10 +56,13 @@
     <section class="hero">
       <div class="hero-background"></div>
       <div class="container hero-content">
-        <h1 data-i18n="hero-title">Cuidamos do seu Gato com Amor e Especialização</h1>
+        <h1>
+          <span data-i18n="hero-title-line-1">Clínica Veterinária</span>
+          <span class="highlight" data-i18n="hero-title-line-2">Gato Escondido</span>
+        </h1>
         <p data-i18n="hero-desc">Bem vindos à nossa clínica em Palmela, onde pode encontrar o médico de família do seu animal.</p>
         <div class="hero-actions">
-          <a href="tel:963349053" class="btn btn-large btn-primary" data-i18n="hero-call">📞 Ligar Agora (963 349 053)</a>
+          <button type="button" id="heroBookBtn" class="btn btn-large btn-primary" data-i18n="hero-call">📞 Ligar Agora</button>
           <a href="#servicos" class="btn btn-large btn-secondary" data-i18n="hero-view">Ver Serviços</a>
         </div>
       </div>
@@ -77,6 +80,7 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Receção & Petshop" 
               data-image="/images/rececao.jpg"
+              data-service-gallery="RE"
               data-desc="A entrada da nossa casa. É no balcão da receção que pode falar com as nossas auxiliares para colocar as suas dúvidas, fazer a marcação de consultas ou adquirir produtos de venda livre para a saúde do seu animal (tais como alimentação húmida ou seca, brinquedos e nutracêuticos não sujeitos a receita médica veterinária). Logo neste balcão começa o melhor aconselhamento para a saúde do seu animal." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
@@ -86,6 +90,7 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Medicina Preventiva" 
               data-image="/images/medicina_preventiva.jpg"
+              data-service-gallery="MP"
               data-desc="Nada como prevenir a doença para trazer vidas longas e felizes para os nossos pacientes. Em consultas de Medicina Preventiva são realizados serviços como a vacinação, a colocação e registo de microchip, emissão do boletim sanitário e de passaporte, desparasitação interna e externa. Nestas consultas é sempre realizado um exame físico cuidado de forma a garantir que o seu animal está em perfeita saúde! Aproveite estas consultas para colocar todas as suas questões ao Médico Veterinário." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
@@ -95,6 +100,7 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Clínica Geral" 
               data-image="/images/medicina_preventiva.jpg"
+              data-service-gallery="CG"
               data-desc="Quando nota alguma alteração de saúde no seu animal, deve trazê-lo o quanto antes para ser observado por um Médico Veterinário. É no momento de consulta que temos a oportunidade de fazer um exame físico completo, falar pessoalmente com os tutores e seguir com planos de diagnóstico e tratamento personalizados. Todos os pacientes são diferentes e cada caso é um caso. Temos ao vosso dispor uma equipa de clínicos multidisciplinar que trabalha sempre com o objetivo de prestar os melhores cuidados." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
@@ -104,6 +110,7 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Análises Clínicas" 
               data-image="/images/analises.jpg"
+              data-service-gallery="AC"
               data-desc="Temos ao nosso dispor tecnologia que permite avançar na hora com análises sanguíneas variadas como Hemograma, Bioquímicas séricas e análises Hormonais. Dependendo da situação, o Médico Veterinário pode propor avançar com uma colheita de sangue do paciente para procura de respostas importantes para diagnóstico, plano de tratamento e seguimento de doenças crónicas." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
@@ -113,6 +120,7 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Laboratório" 
               data-image="/images/analises.jpg"
+              data-service-gallery="LAB"
               data-desc="No nosso laboratório, para além das análises sanguíneas, também temos a possibilidade de realizar Análises de Urina de Tipo II, DTM (cultura fúngica) e Citologia. Principalmente aplicadas em situações de distúrbios urinários, alterações cutâneas e otites, estas análises são importantes para identificação de estruturas celulares, bacterianas e fúngicas essenciais para prescrição do tratamento mais indicado." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
@@ -122,6 +130,7 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Cirurgia" 
               data-image="/images/cirurgia.jpg"
+              data-service-gallery="CI"
               data-desc="Com uma sala de cirurgia equipada com anestesia volátil, concentrador de oxigénio e autoclave, conseguimos oferecer um amplo serviço de cirurgia no nosso espaço. Desde as habituais esterilizações e castrações até outras cirurgias de tecidos moles mais complexas, ortopedia e odontologia. Guiados por protocolos anestésicos sempre atualizados, conseguimos oferecer um serviço de anestesia o mais seguro possível e adaptado a diferentes idades e condições de saúde. Mediante avaliação prévia, o Médico Veterinário pode optar pela cirurgia para tratamento de diferentes doenças." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
@@ -131,6 +140,7 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Internamento" 
               data-image="/images/internamento.jpg"
+              data-service-gallery="INT"
               data-desc="Para situações mais críticas em que seja necessário fluidoterapia e medicação endovenosa, pode ser necessário o paciente ficar em regime de internamento diurno. Na nossa clínica dispomos de boxes de tamanhos diferentes para gatos e cães. Tendo em conta o temperamento específico dos felinos, o nosso internamento segue as guidelines &quot;catfriendly&quot; de forma a oferecer a estadia mais tranquila possível aos nossos pacientes." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
@@ -140,15 +150,17 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Ecografia Abdominal" 
               data-image="/images/ecografia.jpg"
+              data-service-gallery="ECO"
               data-desc="Para situações de emergência e diagnóstico de algumas doenças do foro da cavidade abdominal, dispomos de um ecografo e pessoal em formação contínua nesta área. Em certas situações como infeções uterinas, deteção de massas ou diagnóstico de gestação, a ecografia abdominal é o exame complementar de diagnóstico mais indicado." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
             <div class="service-icon">🫀</div>
-            <h3 data-i18n="svc-ecg-title">Eletrocardiograma & Medição Pressão Arterial</h3>
+            <h3 data-i18n="svc-ecg-title">ECG & Pressão Arterial</h3>
             <p data-i18n="svc-ecg-short">Avaliação cardíaca e monitorização de tensão arterial.</p>
             <button class="view-service-btn btn btn-secondary btn-sm" 
-              data-title="Eletrocardiograma & Medição Pressão Arterial" 
+              data-title="ECG & Pressão Arterial" 
               data-image="/images/ecografia.jpg"
+              data-service-gallery="ECG"
               data-desc="Para auxílio de diagnóstico de doença cardíaca e avaliação pré-anestésica, dispomos do serviço de eletrocardiografia. Complementado com medição de pressão arterial, conseguimos fazer a monitorização de alterações da tensão em caso de doença crónica cardíaca e/ou renal, tanto em cães como em gatos." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
@@ -158,6 +170,7 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Ortopedia" 
               data-image="/images/cirurgia.jpg"
+              data-service-gallery="ORT"
               data-desc="No nosso espaço dispomos do serviço externo da especialidade de Ortopedia. Tendo em conta a casuística e a exigência necessária para oferecer os melhores cuidados aos nossos pacientes, damos a possibilidade de consulta e cirurgia ortopédica em ambulatório com um Médico Veterinário especialista na área. Sempre que o clínico entender que é o ideal para o caso, será feita a recomendação e posterior marcação da visita do colega especialista ao nosso espaço." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
@@ -167,6 +180,7 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Odontologia" 
               data-image="/images/analises.jpg"
+              data-service-gallery="DE"
               data-desc="A Odontologia é um mundo dentro da Medicina Veterinária. Quando o caso clínico é mais complexo e exigir a necessidade de recorrer a raio-x dentário, extração dentária extensa ou remoção de nódulos orais complicados, é feita a recomendação de marcação de cirurgia com Médica Veterinária especialista em regime de ambulatório. Desta forma podemos realizar a avaliação, cirurgia e monitorização pós-cirurgica no nosso espaço." data-i18n="read-more">Saber mais</button>
           </div>
           <div class="service-card">
@@ -176,16 +190,8 @@
             <button class="view-service-btn btn btn-secondary btn-sm" 
               data-title="Animais Exóticos" 
               data-image="/images/internamento.jpg"
+              data-service-gallery="EX"
               data-desc="Para situações de caráter não urgente, seja a nível de consulta ou cirurgia, temos a oportunidade de ter uma Médica Veterinária especialista em animais exóticos a prestar esses serviços em regime de ambulatório. São consultas que prestamos sempre mediante marcação prévia." data-i18n="read-more">Saber mais</button>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">🛁</div>
-            <h3 data-i18n="svc-ban-title">Banhos e Tosquias</h3>
-            <p data-i18n="svc-ban-short">Higiene, banhos terapêuticos e tosquias estéticas ou de saúde.</p>
-            <button class="view-service-btn btn btn-secondary btn-sm" 
-              data-title="Estética e Higiene" 
-              data-image="https://static.wixstatic.com/media/718274_d470699042b4429e875a6c11867c87c1~mv2.jpg"
-              data-desc="Serviço de banhos e tosquias focado no conforto do animal, utilizando produtos adequados para cada tipo de pelo e pele." data-i18n="read-more">Saber mais</button>
           </div>
         </div>
       </div>
@@ -197,7 +203,7 @@
       <div class="container">
         <h2 class="section-title" data-i18n="team-title">A Nossa Equipa</h2>
         <div class="team-grid">
-          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+          <div class="team-card flip-container">
             <div class="flipper">
               <div class="front">
                 <img src="/images/raquel.jpg" alt="Raquel Raminhos Nascimento" class="team-img" />
@@ -215,7 +221,7 @@
             </div>
           </div>
           
-          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+          <div class="team-card flip-container">
             <div class="flipper">
               <div class="front">
                 <img src="/images/marco.jpg" alt="Marco Nascimento" class="team-img" />
@@ -233,7 +239,7 @@
             </div>
           </div>
           
-          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+          <div class="team-card flip-container">
             <div class="flipper">
               <div class="front">
                 <img src="/images/carla.jpg" alt="Carla Gonçalves" class="team-img" />
@@ -251,7 +257,7 @@
             </div>
           </div>
           
-          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+          <div class="team-card flip-container">
             <div class="flipper">
               <div class="front">
                 <img src="/images/claudia.jpg" alt="Cláudia Verdial" class="team-img" />
@@ -269,7 +275,7 @@
             </div>
           </div>
           
-          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+          <div class="team-card flip-container">
             <div class="flipper">
               <div class="front">
                 <img src="/images/rita.jpg" alt="Rita Cruz" class="team-img" />
@@ -287,7 +293,7 @@
             </div>
           </div>
           
-          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+          <div class="team-card flip-container">
             <div class="flipper">
               <div class="front">
                 <img src="/images/joao.jpg" alt="João Lopes" class="team-img" />
@@ -305,7 +311,7 @@
             </div>
           </div>
           
-          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+          <div class="team-card flip-container">
             <div class="flipper">
               <div class="front">
                 <img src="/images/catarina.jpg" alt="Catarina Gomes" class="team-img" />
@@ -323,7 +329,7 @@
             </div>
           </div>
           
-          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+          <div class="team-card flip-container">
             <div class="flipper">
               <div class="front">
                 <img src="/images/ana.jpg" alt="Ana Reis" class="team-img" />
@@ -340,120 +346,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Google Reviews Section -->
-    <section id="avaliacoes" class="reviews-section reveal">
-      <div class="container">
-        <div class="reviews-header">
-          <div class="reviews-rating-badge">
-            <svg class="google-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/>
-              <path fill="#34A853" d="M6.3 14.7l7 5.1C15.2 16.6 19.3 14 24 14c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/>
-              <path fill="#FBBC05" d="M24 46c5.4 0 10.4-1.9 14.2-5l-6.6-5.4C29.8 37.2 27 38 24 38c-6 0-11.1-4-12.9-9.5l-6.9 5.3C7.8 41.6 15.3 46 24 46z"/>
-              <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-.9 2.8-2.8 5.1-5.4 6.6l6.6 5.4C41 37.3 45 31.3 45 24c0-1.3-.2-2.7-.5-4z"/>
-            </svg>
-            <div class="rating-info">
-              <span class="rating-number">4.9</span>
-              <div class="stars-row">⭐⭐⭐⭐⭐</div>
-              <span class="rating-count" data-i18n="reviews-count">Baseado em 39 avaliações</span>
-            </div>
-          </div>
-          <div class="reviews-title-group">
-            <h2 class="section-title" data-i18n="reviews-title">O que dizem os nossos clientes</h2>
-          </div>
-        </div>
-
-        <div class="reviews-slider-container">
-          <div class="reviews-track" id="reviewsTrack">
-
-            <div class="review-card active">
-              <div class="review-stars">⭐⭐⭐⭐⭐</div>
-              <p class="review-text">"Clínica de excelência! A Dra. Raquel e toda a equipa são incríveis, tratam os nossos animais com muito carinho e profissionalismo. Recomendo vivamente!"</p>
-              <div class="reviewer-info">
-                <div class="reviewer-avatar">S</div>
-                <div>
-                  <span class="reviewer-name">Sofia M.</span>
-                  <span class="review-via">via Google</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">⭐⭐⭐⭐⭐</div>
-              <p class="review-text">"Fantástica clínica! Atendimento de qualidade, espaço muito limpo e organizado. A minha gata ficou em ótimas mãos. Muito obrigada a toda a equipa!"</p>
-              <div class="reviewer-info">
-                <div class="reviewer-avatar">A</div>
-                <div>
-                  <span class="reviewer-name">Ana L.</span>
-                  <span class="review-via">via Google</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">⭐⭐⭐⭐⭐</div>
-              <p class="review-text">"Profissionais de excelência! Os meus gatos são sempre tratados com muito cuidado e atenção. O espaço é moderno e acolhedor. Totalmente recomendado!"</p>
-              <div class="reviewer-info">
-                <div class="reviewer-avatar">M</div>
-                <div>
-                  <span class="reviewer-name">Miguel F.</span>
-                  <span class="review-via">via Google</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">⭐⭐⭐⭐⭐</div>
-              <p class="review-text">"Equipa muito atenciosa e competente. Sinto-me sempre tranquila quando o meu bichinho está aos cuidados desta clínica. Excelente serviço!"</p>
-              <div class="reviewer-info">
-                <div class="reviewer-avatar">C</div>
-                <div>
-                  <span class="reviewer-name">Carla R.</span>
-                  <span class="review-via">via Google</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">⭐⭐⭐⭐⭐</div>
-              <p class="review-text">"Clínica de referência em Palmela. Atendimento rápido, preços justos e uma equipa que demonstra genuíno amor pelos animais. 100% recomendado!"</p>
-              <div class="reviewer-info">
-                <div class="reviewer-avatar">J</div>
-                <div>
-                  <span class="reviewer-name">João P.</span>
-                  <span class="review-via">via Google</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="review-card">
-              <div class="review-stars">⭐⭐⭐⭐⭐</div>
-              <p class="review-text">"Vim de urgência e fui atendida de imediato. A equipa foi extraordinária, muito empática e competente. A minha gatinha recuperou muito bem. Obrigada!"</p>
-              <div class="reviewer-info">
-                <div class="reviewer-avatar">P</div>
-                <div>
-                  <span class="reviewer-name">Patricia G.</span>
-                  <span class="review-via">via Google</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="reviews-nav">
-            <button class="review-nav-btn prev-review">&#10094;</button>
-            <div class="reviews-dots" id="reviewsDots"></div>
-            <button class="review-nav-btn next-review">&#10095;</button>
-          </div>
-        </div>
-
-        <div class="reviews-cta">
-          <a href="https://g.page/r/CdeF_c-Psa8CEBM/review" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="reviews-cta">
-            ⭐ Deixe a sua avaliação
-          </a>
         </div>
       </div>
     </section>
@@ -505,12 +397,56 @@
       </div>
     </section>
 
+    <!-- Reviews Section -->
+    <section class="reviews reveal" aria-label="Críticas de clientes">
+      <div class="container">
+        <div class="reviews-header">
+          <span class="reviews-kicker">Google Reviews</span>
+          <h2 class="section-title" data-i18n="reviews-title">O Que Dizem Sobre Nós</h2>
+          <p data-i18n="reviews-subtitle">Críticas reais de clientes que confiam a saúde dos seus animais ao Gato Escondido.</p>
+        </div>
+
+        <div class="reviews-stage">
+          <button class="review-nav review-prev" type="button" aria-label="Crítica anterior">&#10094;</button>
+          <div class="review-card active">
+            <div class="review-stars" aria-label="5 estrelas">★★★★★</div>
+            <p>Profissionalismo, simpatia e dedicação aos animais. Vários tratamentos bem-sucedidos e uma equipa sentida como próxima e cuidadosa.</p>
+            <span>P. S.</span>
+          </div>
+          <div class="review-card">
+            <div class="review-stars" aria-label="5 estrelas">★★★★★</div>
+            <p>Os animais são tratados com carinho, atenção e humanidade. Uma clínica valorizada também pelo apoio à comunidade animal local.</p>
+            <span>F. D.</span>
+          </div>
+          <div class="review-card">
+            <div class="review-stars" aria-label="5 estrelas">★★★★★</div>
+            <p>Uma experiência marcada por clínica organizada, limpa e equipa atenciosa, com especial destaque para o cuidado no atendimento.</p>
+            <span>N. S.</span>
+          </div>
+          <div class="review-card">
+            <div class="review-stars" aria-label="5 estrelas">★★★★★</div>
+            <p>Clientes destacam a simpatia, disponibilidade e prontidão da equipa em momentos importantes para a saúde dos seus animais.</p>
+            <span>H. M.</span>
+          </div>
+          <div class="review-card">
+            <div class="review-stars" aria-label="5 estrelas">★★★★★</div>
+            <p>Uma equipa atenciosa, dedicada, competente e com uma relação próxima com os animais e as suas famílias.</p>
+            <span>A. P.</span>
+          </div>
+          <button class="review-nav review-next" type="button" aria-label="Crítica seguinte">&#10095;</button>
+        </div>
+
+        <div class="review-dots" aria-label="Navegação das críticas"></div>
+        <a class="reviews-link" href="https://www.google.com/search?q=Gato+Escondido+-+Cl%C3%ADnica+Veterin%C3%A1ria+Cr%C3%ADticas" target="_blank" rel="noopener" data-i18n="reviews-source">Fonte: críticas públicas online</a>
+      </div>
+    </section>
+
     <!-- Instagram Section -->
     <section id="instagram" class="instagram reveal">
       <div class="container">
         <div class="instagram-header">
           <div class="insta-profile">
-            <img src="/images/_gatoescondido_final_preto.png" alt="Logo" class="insta-logo-small">
+            <img src="/images/instagram-avatar.jpg" alt="Gato Escondido Instagram" class="insta-logo-small">
             <div class="insta-meta">
               <h2 class="insta-handle">@gatoescondido.vet</h2>
               <p data-i18n="insta-subtitle">Clínica Veterinária em Palmela</p>
@@ -615,7 +551,6 @@
               </div>
               
               <div id="bookingOptions" class="booking-options hidden">
-                <p class="booking-choice-text" data-i18n="modal-book-choice">Como prefere contactar-nos?</p>
                 <div class="options-grid">
                   <a href="tel:963349053" class="option-btn call">
                     <span class="icon">📞</span>
