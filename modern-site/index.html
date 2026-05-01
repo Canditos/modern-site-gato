@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clínica Veterinária Gato Escondido - Palmela</title>
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="/" class="logo">
+          <img src="/images/_gatoescondido_final_preto.png" alt="Gato Escondido Logo" class="logo-img" />
+        </a>
+        <nav class="nav-links">
+          <a href="/" data-i18n="nav-home" class="active">Home</a>
+          <a href="#servicos" data-i18n="nav-services">Serviços</a>
+          <a href="#equipa" data-i18n="nav-team">Equipa</a>
+          <a href="#espaco" data-i18n="nav-space">O Espaço</a>
+          <a href="#contactos" data-i18n="nav-contacts">Contactos</a>
+        </nav>
+        <div class="nav-actions">
+          <div class="language-switcher">
+            <button class="lang-btn active" data-lang="pt">
+              <svg class="flag-icon" viewBox="0 0 640 480"><path fill="#ff0000" d="M0 0h640v480H0z"/><path fill="#006600" d="M0 0h256v480H0z"/><circle cx="256" cy="240" r="120" fill="#ffff00"/><path fill="#ff0000" d="M236 170h40v140h-40z"/><path fill="#000080" d="M241 190h30v100h-30z"/></svg>
+              PT
+            </button>
+            <button class="lang-btn" data-lang="en">
+              <svg class="flag-icon" viewBox="0 0 640 480"><path fill="#012169" d="M0 0h640v480H0z"/><path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 240l240 178v62h-78L320 301 78 480H0v-62l240-178L0 62V0h75z"/><path fill="#C8102E" d="m424 281 216 159v40L369 281h55zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-54L0 30V0zm0 480 249-184-2 43L48 480H0z"/><path fill="#FFF" d="M241 0v480h158V0H241zM0 161v158h640V161H0z"/><path fill="#C8102E" d="M281 0v480h78V0h-78zM0 201v78h640v-78H0z"/></svg>
+              EN
+            </button>
+          </div>
+          <div class="header-socials">
+            <a href="https://www.facebook.com/gatoescondido.vet/" target="_blank" class="header-social-link fb">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/gatoescondido.vet/" target="_blank" class="header-social-link ig">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+          <button class="btn btn-primary nav-btn" id="navBookBtn" data-i18n="book-btn">📞 Marcar Consulta</button>
+        </div>
+        <button class="mobile-toggle" aria-label="Abrir Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-background"></div>
+      <div class="container hero-content">
+        <h1 data-i18n="hero-title">Cuidamos do seu Gato com Amor e Especialização</h1>
+        <p data-i18n="hero-desc">Bem vindos à nossa clínica em Palmela, onde pode encontrar o médico de família do seu animal.</p>
+        <div class="hero-actions">
+          <a href="tel:963349053" class="btn btn-large btn-primary" data-i18n="hero-call">📞 Ligar Agora (963 349 053)</a>
+          <a href="#servicos" class="btn btn-large btn-secondary" data-i18n="hero-view">Ver Serviços</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="services reveal">
+      <div class="container">
+        <h2 class="section-title" data-i18n="services-title">Os Nossos Serviços</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🛍️</div>
+            <h3 data-i18n="svc-rec-title">Receção & Petshop</h3>
+            <p data-i18n="svc-rec-short">Alimentação, brinquedos e nutracêuticos com aconselhamento especializado.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Receção & Petshop" 
+              data-image="/images/rececao.jpg"
+              data-desc="A entrada da nossa casa. É no balcão da receção que pode falar com as nossas auxiliares para colocar as suas dúvidas, fazer a marcação de consultas ou adquirir produtos de venda livre para a saúde do seu animal (tais como alimentação húmida ou seca, brinquedos e nutracêuticos não sujeitos a receita médica veterinária). Logo neste balcão começa o melhor aconselhamento para a saúde do seu animal." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🛡️</div>
+            <h3 data-i18n="svc-prev-title">Medicina Preventiva</h3>
+            <p data-i18n="svc-prev-short">Vacinação, microchip, desparasitação e emissão de boletins.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Medicina Preventiva" 
+              data-image="/images/medicina_preventiva.jpg"
+              data-desc="Nada como prevenir a doença para trazer vidas longas e felizes para os nossos pacientes. Em consultas de Medicina Preventiva são realizados serviços como a vacinação, a colocação e registo de microchip, emissão do boletim sanitário e de passaporte, desparasitação interna e externa. Nestas consultas é sempre realizado um exame físico cuidado de forma a garantir que o seu animal está em perfeita saúde! Aproveite estas consultas para colocar todas as suas questões ao Médico Veterinário." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🩺</div>
+            <h3 data-i18n="svc-gen-title">Clínica Geral</h3>
+            <p data-i18n="svc-gen-short">Exame físico completo, diagnósticos e tratamentos personalizados.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Clínica Geral" 
+              data-image="/images/medicina_preventiva.jpg"
+              data-desc="Quando nota alguma alteração de saúde no seu animal, deve trazê-lo o quanto antes para ser observado por um Médico Veterinário. É no momento de consulta que temos a oportunidade de fazer um exame físico completo, falar pessoalmente com os tutores e seguir com planos de diagnóstico e tratamento personalizados. Todos os pacientes são diferentes e cada caso é um caso. Temos ao vosso dispor uma equipa de clínicos multidisciplinar que trabalha sempre com o objetivo de prestar os melhores cuidados." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🧪</div>
+            <h3 data-i18n="svc-ana-title">Análises Clínicas</h3>
+            <p data-i18n="svc-ana-short">Hemogramas e Bioquímicas realizadas na hora para diagnósticos rápidos.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Análises Clínicas" 
+              data-image="/images/analises.jpg"
+              data-desc="Temos ao nosso dispor tecnologia que permite avançar na hora com análises sanguíneas variadas como Hemograma, Bioquímicas séricas e análises Hormonais. Dependendo da situação, o Médico Veterinário pode propor avançar com uma colheita de sangue do paciente para procura de respostas importantes para diagnóstico, plano de tratamento e seguimento de doenças crónicas." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🔬</div>
+            <h3 data-i18n="svc-lab-title">Laboratório</h3>
+            <p data-i18n="svc-lab-short">Análises de Urina, Cultura Fúngica e Citologia especializada.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Laboratório" 
+              data-image="/images/analises.jpg"
+              data-desc="No nosso laboratório, para além das análises sanguíneas, também temos a possibilidade de realizar Análises de Urina de Tipo II, DTM (cultura fúngica) e Citologia. Principalmente aplicadas em situações de distúrbios urinários, alterações cutâneas e otites, estas análises são importantes para identificação de estruturas celulares, bacterianas e fúngicas essenciais para prescrição do tratamento mais indicado." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">✂️</div>
+            <h3 data-i18n="svc-cir-title">Cirurgia</h3>
+            <p data-i18n="svc-cir-short">Esterilizações e tecidos moles com anestesia segura e monitorização.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Cirurgia" 
+              data-image="/images/cirurgia.jpg"
+              data-desc="Com uma sala de cirurgia equipada com anestesia volátil, concentrador de oxigénio e autoclave, conseguimos oferecer um amplo serviço de cirurgia no nosso espaço. Desde as habituais esterilizações e castrações até outras cirurgias de tecidos moles mais complexas, ortopedia e odontologia. Guiados por protocolos anestésicos sempre atualizados, conseguimos oferecer um serviço de anestesia o mais seguro possível e adaptado a diferentes idades e condições de saúde. Mediante avaliação prévia, o Médico Veterinário pode optar pela cirurgia para tratamento de diferentes doenças." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🛏️</div>
+            <h3 data-i18n="svc-int-title">Internamento</h3>
+            <p data-i18n="svc-int-short">Boxes 'catfriendly' com fluidoterapia e medicação em regime diurno.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Internamento" 
+              data-image="/images/internamento.jpg"
+              data-desc="Para situações mais críticas em que seja necessário fluidoterapia e medicação endovenosa, pode ser necessário o paciente ficar em regime de internamento diurno. Na nossa clínica dispomos de boxes de tamanhos diferentes para gatos e cães. Tendo em conta o temperamento específico dos felinos, o nosso internamento segue as guidelines &quot;catfriendly&quot; de forma a oferecer a estadia mais tranquila possível aos nossos pacientes." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🖥️</div>
+            <h3 data-i18n="svc-eco-title">Ecografia Abdominal</h3>
+            <p data-i18n="svc-eco-short">Emergências, gestação, infeções uterinas e deteção de massas.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Ecografia Abdominal" 
+              data-image="/images/ecografia.jpg"
+              data-desc="Para situações de emergência e diagnóstico de algumas doenças do foro da cavidade abdominal, dispomos de um ecografo e pessoal em formação contínua nesta área. Em certas situações como infeções uterinas, deteção de massas ou diagnóstico de gestação, a ecografia abdominal é o exame complementar de diagnóstico mais indicado." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🫀</div>
+            <h3 data-i18n="svc-ecg-title">Eletrocardiograma & Medição Pressão Arterial</h3>
+            <p data-i18n="svc-ecg-short">Avaliação cardíaca e monitorização de tensão arterial.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Eletrocardiograma & Medição Pressão Arterial" 
+              data-image="/images/ecografia.jpg"
+              data-desc="Para auxílio de diagnóstico de doença cardíaca e avaliação pré-anestésica, dispomos do serviço de eletrocardiografia. Complementado com medição de pressão arterial, conseguimos fazer a monitorização de alterações da tensão em caso de doença crónica cardíaca e/ou renal, tanto em cães como em gatos." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🦴</div>
+            <h3 data-i18n="svc-ort-title">Ortopedia</h3>
+            <p data-i18n="svc-ort-short">Consultas e cirurgias ortopédicas com especialistas externos.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Ortopedia" 
+              data-image="/images/cirurgia.jpg"
+              data-desc="No nosso espaço dispomos do serviço externo da especialidade de Ortopedia. Tendo em conta a casuística e a exigência necessária para oferecer os melhores cuidados aos nossos pacientes, damos a possibilidade de consulta e cirurgia ortopédica em ambulatório com um Médico Veterinário especialista na área. Sempre que o clínico entender que é o ideal para o caso, será feita a recomendação e posterior marcação da visita do colega especialista ao nosso espaço." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🦷</div>
+            <h3 data-i18n="svc-odo-title">Odontologia</h3>
+            <p data-i18n="svc-odo-short">Destartarização e cuidados de saúde oral especializados.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Odontologia" 
+              data-image="/images/analises.jpg"
+              data-desc="A Odontologia é um mundo dentro da Medicina Veterinária. Quando o caso clínico é mais complexo e exigir a necessidade de recorrer a raio-x dentário, extração dentária extensa ou remoção de nódulos orais complicados, é feita a recomendação de marcação de cirurgia com Médica Veterinária especialista em regime de ambulatório. Desta forma podemos realizar a avaliação, cirurgia e monitorização pós-cirurgica no nosso espaço." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🐢</div>
+            <h3 data-i18n="svc-exo-title">Animais Exóticos</h3>
+            <p data-i18n="svc-exo-short">Consultas especializadas para companheiros não-tradicionais.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Animais Exóticos" 
+              data-image="/images/internamento.jpg"
+              data-desc="Para situações de caráter não urgente, seja a nível de consulta ou cirurgia, temos a oportunidade de ter uma Médica Veterinária especialista em animais exóticos a prestar esses serviços em regime de ambulatório. São consultas que prestamos sempre mediante marcação prévia." data-i18n="read-more">Saber mais</button>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🛁</div>
+            <h3 data-i18n="svc-ban-title">Banhos e Tosquias</h3>
+            <p data-i18n="svc-ban-short">Higiene, banhos terapêuticos e tosquias estéticas ou de saúde.</p>
+            <button class="view-service-btn btn btn-secondary btn-sm" 
+              data-title="Estética e Higiene" 
+              data-image="https://static.wixstatic.com/media/718274_d470699042b4429e875a6c11867c87c1~mv2.jpg"
+              data-desc="Serviço de banhos e tosquias focado no conforto do animal, utilizando produtos adequados para cada tipo de pelo e pele." data-i18n="read-more">Saber mais</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Team Section -->
+    <section id="equipa" class="team reveal">
+      <div class="container">
+        <h2 class="section-title" data-i18n="team-title">A Nossa Equipa</h2>
+        <div class="team-grid">
+          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+            <div class="flipper">
+              <div class="front">
+                <img src="/images/raquel.jpg" alt="Raquel Raminhos Nascimento" class="team-img" />
+              </div>
+              <div class="back">
+                <h3>Raquel Raminhos Nascimento</h3>
+                <p class="role">Fundadora & Médica Veterinária</p>
+                <button class="btn btn-primary btn-sm view-more-btn" 
+                  data-name="Raquel Raminhos Nascimento" 
+                  data-role="Fundadora & Médica Veterinária" 
+                  data-image="/images/raquel.jpg"
+                  data-bio="Formada em Medicina Veterinária na faculdade FMV-UL em 2011 e fundadora da Clínica Gato Escondido em 2016. Tem como áreas de maior interesse a citologia, cirurgia e gestão."
+                  data-hobbies="Aventuras em família, jardinagem, viajar." data-i18n-key="raquel" data-i18n="view-more">Ver Mais</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+            <div class="flipper">
+              <div class="front">
+                <img src="/images/marco.jpg" alt="Marco Nascimento" class="team-img" />
+              </div>
+              <div class="back">
+                <h3>Marco Nascimento</h3>
+                <p class="role">Fundador & Sócio Gerente</p>
+                <button class="btn btn-primary btn-sm view-more-btn" 
+                  data-name="Marco Nascimento" 
+                  data-role="Fundador & Sócio Gerente" 
+                  data-image="/images/marco.jpg"
+                  data-bio="Formado em Engenharia de Automação e Controlo Industrial. Fundador da Clínica Gato Escondido em 2016. Papel fundamental na gestão empresarial e apoio na área de informática e manutenção geral."
+                  data-hobbies="Aventuras em família, desporto (elemento da equipa de Veteranos do Palmelense Futebol Clube)." data-i18n-key="marco" data-i18n="view-more">Ver Mais</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+            <div class="flipper">
+              <div class="front">
+                <img src="/images/carla.jpg" alt="Carla Gonçalves" class="team-img" />
+              </div>
+              <div class="back">
+                <h3>Carla Gonçalves</h3>
+                <p class="role">Diretora Clínica</p>
+                <button class="btn btn-primary btn-sm view-more-btn" 
+                  data-name="Carla Gonçalves" 
+                  data-role="Diretora Clínica" 
+                  data-image="/images/carla.jpg"
+                  data-bio="Formada em Medicina Veterinária na FMV-UL em 2013. Incluiu o corpo clínico da Clínica Veterinária Gato Escondido desde a sua fundação em 2016. Em 2023 assumiu o cargo da Direção Clínica. Tem como áreas de interesse Medicina Interna e Cardiologia."
+                  data-hobbies="Jardinagem, jogos de tabuleiro, trabalhos manuais e viajar." data-i18n-key="carla" data-i18n="view-more">Ver Mais</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+            <div class="flipper">
+              <div class="front">
+                <img src="/images/claudia.jpg" alt="Cláudia Verdial" class="team-img" />
+              </div>
+              <div class="back">
+                <h3>Cláudia Verdial</h3>
+                <p class="role">Médica Veterinária</p>
+                <button class="btn btn-primary btn-sm view-more-btn" 
+                  data-name="Cláudia Verdial" 
+                  data-role="Médica Veterinária" 
+                  data-image="/images/claudia.jpg"
+                  data-bio="Formada em Medicina Veterinária na faculdade FMV-UL em 2020. Desde 2021 que faz parte do corpo clínico do Gato Escondido. Tem como áreas de maior interesse Citologia Clínica, Internamento e Pediatria Veterinária."
+                  data-hobbies="Leitura, viajar, pintura e experiências culinárias." data-i18n-key="claudia" data-i18n="view-more">Ver Mais</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+            <div class="flipper">
+              <div class="front">
+                <img src="/images/rita.jpg" alt="Rita Cruz" class="team-img" />
+              </div>
+              <div class="back">
+                <h3>Rita Cruz</h3>
+                <p class="role">Médica Veterinária</p>
+                <button class="btn btn-primary btn-sm view-more-btn" 
+                  data-name="Rita Cruz" 
+                  data-role="Médica Veterinária" 
+                  data-image="/images/rita.jpg"
+                  data-bio="Formada em Medicina Veterinária na FMV-UL em 2015. Faz parte do corpo clínico do Gato Escondido desde 2022. Tem como principal área de interesse a Cirurgia de Tecidos Moles."
+                  data-hobbies="Escrita criativa, leitura, música e passear." data-i18n-key="rita" data-i18n="view-more">Ver Mais</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+            <div class="flipper">
+              <div class="front">
+                <img src="/images/joao.jpg" alt="João Lopes" class="team-img" />
+              </div>
+              <div class="back">
+                <h3>João Lopes</h3>
+                <p class="role">Médico Veterinário</p>
+                <button class="btn btn-primary btn-sm view-more-btn" 
+                  data-name="João Lopes" 
+                  data-role="Médico Veterinário" 
+                  data-image="/images/joao.jpg"
+                  data-bio="Formado em Medicina Veterinária na Faculdade da Lusófona em 2022. Desde 2023 que faz parte da equipa da Clínica Gato Escondido. Tem como principais áreas de interesse a Medicina Interna e Ecografia Abdominal."
+                  data-hobbies="Cinema, video-jogos e passear." data-i18n-key="joao" data-i18n="view-more">Ver Mais</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+            <div class="flipper">
+              <div class="front">
+                <img src="/images/catarina.jpg" alt="Catarina Gomes" class="team-img" />
+              </div>
+              <div class="back">
+                <h3>Catarina Gomes</h3>
+                <p class="role">Auxiliar Medicina Veterinária</p>
+                <button class="btn btn-primary btn-sm view-more-btn" 
+                  data-name="Catarina Gomes" 
+                  data-role="Auxiliar Medicina Veterinária" 
+                  data-image="/images/catarina.jpg"
+                  data-bio="Formada em Turismo na Escola Secundária de Palmela e conta com vasta experiência em atendimento ao público em diferentes áreas. Faz parte da equipa do Gato Escondido desde 2020. Sendo a principal figura da receção é quem recebe o cliente sempre que este telefona ou entra no nosso espaço. Também presta apoio auxiliar veterinário sempre que necessário."
+                  data-hobbies="Tempo em família, passeios à beira mar e eventos sociais." data-i18n-key="catarina" data-i18n="view-more">Ver Mais</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="team-card flip-container" onclick="this.classList.toggle('hover')">
+            <div class="flipper">
+              <div class="front">
+                <img src="/images/ana.jpg" alt="Ana Reis" class="team-img" />
+              </div>
+              <div class="back">
+                <h3>Ana Reis</h3>
+                <p class="role">Auxiliar Medicina Veterinária</p>
+                <button class="btn btn-primary btn-sm view-more-btn" 
+                  data-name="Ana Reis" 
+                  data-role="Auxiliar Medicina Veterinária" 
+                  data-image="/images/ana.jpg"
+                  data-bio="Formação em Comunicação, Marketing, RP e Publicidade. Vasta experiência com animais devido ao voluntariado na Associação Quintinha ABC desde 2018. Em Maio de 2024 terminou o Curso de Auxiliar de Medicina Veterinária. Realizou o estágio connosco e agora faz parte integrante da equipa do Gato Escondido. Tem um papel importante na receção, mas não só. Presta apoio essencial na sala de cirurgia e no internamento."
+                  data-hobbies="Tempo em família e lazer com os seus nove gatos e Netflix." data-i18n-key="ana" data-i18n="view-more">Ver Mais</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section id="avaliacoes" class="reviews-section reveal">
+      <div class="container">
+        <div class="reviews-header">
+          <div class="reviews-rating-badge">
+            <svg class="google-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/>
+              <path fill="#34A853" d="M6.3 14.7l7 5.1C15.2 16.6 19.3 14 24 14c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/>
+              <path fill="#FBBC05" d="M24 46c5.4 0 10.4-1.9 14.2-5l-6.6-5.4C29.8 37.2 27 38 24 38c-6 0-11.1-4-12.9-9.5l-6.9 5.3C7.8 41.6 15.3 46 24 46z"/>
+              <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-.9 2.8-2.8 5.1-5.4 6.6l6.6 5.4C41 37.3 45 31.3 45 24c0-1.3-.2-2.7-.5-4z"/>
+            </svg>
+            <div class="rating-info">
+              <span class="rating-number">4.9</span>
+              <div class="stars-row">⭐⭐⭐⭐⭐</div>
+              <span class="rating-count" data-i18n="reviews-count">Baseado em 39 avaliações</span>
+            </div>
+          </div>
+          <div class="reviews-title-group">
+            <h2 class="section-title" data-i18n="reviews-title">O que dizem os nossos clientes</h2>
+          </div>
+        </div>
+
+        <div class="reviews-slider-container">
+          <div class="reviews-track" id="reviewsTrack">
+
+            <div class="review-card active">
+              <div class="review-stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-text">"Clínica de excelência! A Dra. Raquel e toda a equipa são incríveis, tratam os nossos animais com muito carinho e profissionalismo. Recomendo vivamente!"</p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">S</div>
+                <div>
+                  <span class="reviewer-name">Sofia M.</span>
+                  <span class="review-via">via Google</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-text">"Fantástica clínica! Atendimento de qualidade, espaço muito limpo e organizado. A minha gata ficou em ótimas mãos. Muito obrigada a toda a equipa!"</p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">A</div>
+                <div>
+                  <span class="reviewer-name">Ana L.</span>
+                  <span class="review-via">via Google</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-text">"Profissionais de excelência! Os meus gatos são sempre tratados com muito cuidado e atenção. O espaço é moderno e acolhedor. Totalmente recomendado!"</p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">M</div>
+                <div>
+                  <span class="reviewer-name">Miguel F.</span>
+                  <span class="review-via">via Google</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-text">"Equipa muito atenciosa e competente. Sinto-me sempre tranquila quando o meu bichinho está aos cuidados desta clínica. Excelente serviço!"</p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">C</div>
+                <div>
+                  <span class="reviewer-name">Carla R.</span>
+                  <span class="review-via">via Google</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-text">"Clínica de referência em Palmela. Atendimento rápido, preços justos e uma equipa que demonstra genuíno amor pelos animais. 100% recomendado!"</p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">J</div>
+                <div>
+                  <span class="reviewer-name">João P.</span>
+                  <span class="review-via">via Google</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-text">"Vim de urgência e fui atendida de imediato. A equipa foi extraordinária, muito empática e competente. A minha gatinha recuperou muito bem. Obrigada!"</p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">P</div>
+                <div>
+                  <span class="reviewer-name">Patricia G.</span>
+                  <span class="review-via">via Google</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="reviews-nav">
+            <button class="review-nav-btn prev-review">&#10094;</button>
+            <div class="reviews-dots" id="reviewsDots"></div>
+            <button class="review-nav-btn next-review">&#10095;</button>
+          </div>
+        </div>
+
+        <div class="reviews-cta">
+          <a href="https://g.page/r/CdeF_c-Psa8CEBM/review" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="reviews-cta">
+            ⭐ Deixe a sua avaliação
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Espaço -->
+    <section id="espaco" class="espaco reveal">
+      <div class="container">
+        <h2 class="section-title" data-i18n="space-title">O Nosso Espaço</h2>
+        <div class="slider-wrapper">
+          <div class="slider-main">
+            <!-- Navigation Arrows -->
+            <button class="slider-btn prev-btn">&#10094;</button>
+            <button class="slider-btn next-btn">&#10095;</button>
+            
+            <!-- Slides -->
+            <div class="slides-container">
+              <div class="slide active"><img src="/images/espaco/718274_6c9d08cb4e61465ca0f0e8ec712f8bb4~mv2.jpg" alt="Receção" class="lightbox-trigger"></div>
+              <div class="slide"><img src="/images/espaco/718274_97e90d2d7b854683aa5c4a306bf72c51~mv2.jpg" alt="Sala de Espera" class="lightbox-trigger"></div>
+              <div class="slide"><img src="/images/espaco/718274_0947480477a34d02a5ac0ed7ea8420c5~mv2.jpg" alt="Consultório" class="lightbox-trigger"></div>
+              <div class="slide"><img src="/images/espaco/718274_551fbef2a92849bdbbbb7390f1055cbc~mv2.jpg" alt="Corredor" class="lightbox-trigger"></div>
+              <div class="slide"><img src="/images/espaco/718274_e7371280b08249d88dcbc43b809634a3~mv2.jpg" alt="Cirurgia" class="lightbox-trigger"></div>
+              <div class="slide"><img src="/images/espaco/718274_11c378e221634074a4edf392828fe550~mv2.jpg" alt="Internamento" class="lightbox-trigger"></div>
+              <div class="slide"><img src="/images/espaco/718274_8fe7a4bc7f804326a75a7d198f276b52~mv2.jpg" alt="Laboratório" class="lightbox-trigger"></div>
+              <div class="slide"><img src="/images/espaco/718274_b49ca37e493f444986155a73cffe3bd8~mv2.jpg" alt="Equipamentos" class="lightbox-trigger"></div>
+              <div class="slide"><img src="/images/espaco/718274_d8f2ab9760a04bf2b25cd928a5ba26ff~mv2.jpg" alt="Espaço Gatos" class="lightbox-trigger"></div>
+              <div class="slide"><img src="/images/espaco/718274_d86186a873234c12967b464dd0a70bc4~mv2.jpg" alt="Espaço Cães" class="lightbox-trigger"></div>
+              <div class="slide"><img src="/images/espaco/718274_efe735ae7e594e7abbcd37cdc7369cc4~mv2.jpg" alt="Fachada" class="lightbox-trigger"></div>
+            </div>
+          </div>
+          
+          <!-- Thumbnails -->
+          <div class="slider-thumbnails">
+            <img src="/images/espaco/718274_6c9d08cb4e61465ca0f0e8ec712f8bb4~mv2.jpg" class="thumb active" data-index="0" alt="Thumb">
+            <img src="/images/espaco/718274_97e90d2d7b854683aa5c4a306bf72c51~mv2.jpg" class="thumb" data-index="1" alt="Thumb">
+            <img src="/images/espaco/718274_0947480477a34d02a5ac0ed7ea8420c5~mv2.jpg" class="thumb" data-index="2" alt="Thumb">
+            <img src="/images/espaco/718274_551fbef2a92849bdbbbb7390f1055cbc~mv2.jpg" class="thumb" data-index="3" alt="Thumb">
+            <img src="/images/espaco/718274_e7371280b08249d88dcbc43b809634a3~mv2.jpg" class="thumb" data-index="4" alt="Thumb">
+            <img src="/images/espaco/718274_11c378e221634074a4edf392828fe550~mv2.jpg" class="thumb" data-index="5" alt="Thumb">
+            <img src="/images/espaco/718274_8fe7a4bc7f804326a75a7d198f276b52~mv2.jpg" class="thumb" data-index="6" alt="Thumb">
+            <img src="/images/espaco/718274_b49ca37e493f444986155a73cffe3bd8~mv2.jpg" class="thumb" data-index="7" alt="Thumb">
+            <img src="/images/espaco/718274_d8f2ab9760a04bf2b25cd928a5ba26ff~mv2.jpg" class="thumb" data-index="8" alt="Thumb">
+            <img src="/images/espaco/718274_d86186a873234c12967b464dd0a70bc4~mv2.jpg" class="thumb" data-index="9" alt="Thumb">
+            <img src="/images/espaco/718274_efe735ae7e594e7abbcd37cdc7369cc4~mv2.jpg" class="thumb" data-index="10" alt="Thumb">
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+          <p style="color: var(--text-muted); font-size: 1.1rem;" data-i18n="space-desc">Um espaço moderno, acolhedor e totalmente equipado para o bem-estar do seu animal de companhia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="instagram" class="instagram reveal">
+      <div class="container">
+        <div class="instagram-header">
+          <div class="insta-profile">
+            <img src="/images/_gatoescondido_final_preto.png" alt="Logo" class="insta-logo-small">
+            <div class="insta-meta">
+              <h2 class="insta-handle">@gatoescondido.vet</h2>
+              <p data-i18n="insta-subtitle">Clínica Veterinária em Palmela</p>
+            </div>
+            <a href="https://www.instagram.com/gatoescondido.vet/" target="_blank" class="btn-insta-follow" data-i18n="insta-follow">Seguir</a>
+          </div>
+        </div>
+        <div id="insta-feed" class="insta-grid-4">
+          <!-- Photos will be loaded here via JS -->
+          <div class="insta-loader" data-i18n="insta-loading">A carregar momentos...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts / Hours Section -->
+    <section id="contactos" class="contact reveal">
+      <div class="container">
+        <h2 class="section-title" data-i18n="contact-title">Onde Estamos</h2>
+        <div class="contact-grid-main">
+          <!-- Info Column -->
+          <div class="contact-details-column">
+            <div class="contact-card-item">
+              <div class="contact-card-icon">📍</div>
+              <div class="contact-card-text">
+                <h3 data-i18n="contact-address-label">Morada</h3>
+                <p>Av. Bombeiros Voluntários, 22B<br>2950-209 Palmela</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Gato%20Escondido%20-%20Cl%C3%ADnica%20Veterin%C3%A1ria&destination_place_id=ChIJpeyqdGeqlA0RlyfupEOTthU" target="_blank" class="btn-directions" data-i18n="contact-directions">Obter Direções</a>
+              </div>
+            </div>
+
+            <div class="contact-card-item">
+              <div class="contact-card-icon">📞</div>
+              <div class="contact-card-text">
+                <h3 data-i18n="contact-label">Contactos</h3>
+                <p><strong>Fixa:</strong> <a href="tel:211973277" class="phone-link">211 973 277</a></p>
+                <p><strong>Móvel:</strong> <a href="tel:963349053" class="phone-link">963 349 053</a></p>
+              </div>
+            </div>
+
+            <div class="contact-card-item">
+              <div class="contact-card-icon">⏰</div>
+              <div class="contact-card-text">
+                <h3 data-i18n="contact-hours-label">Horário</h3>
+                <p><strong>Seg-Sex:</strong> 10h-13h | 15h-20h</p>
+                <p><strong>Sábado:</strong> 10h-13h | 14:30h-19h</p>
+                <p class="text-muted" data-i18n="contact-closed">Encerrados Domingos e Feriados</p>
+              </div>
+            </div>
+            <div class="social-links-footer">
+              <h3 data-i18n="contact-follow-label">Siga-nos</h3>
+              <div class="social-btns">
+                <a href="https://www.facebook.com/gatoescondido.vet/" target="_blank" class="social-btn fb" title="Facebook">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/gatoescondido.vet/" target="_blank" class="social-btn ig" title="Instagram">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Column -->
+          <div class="contact-map-column">
+            <div class="map-wrapper glass-panel">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.3!2d-8.8990549!3d38.5712241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1946a6774a6ea5%3A0x15b69343a4eba797!2sGato%20Escondido%20-%20Cl%C3%ADnica%20Veterin%C3%A1ria!5e0!3m2!1spt-PT!2spt!4v1777655333010!5m2!1spt-PT!2spt" 
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-social">
+          <a href="https://www.facebook.com/gatoescondido.vet/" target="_blank" class="footer-social-link">Facebook</a>
+          <a href="https://www.instagram.com/gatoescondido.vet/" target="_blank" class="footer-social-link">Instagram</a>
+        </div>
+        <p data-i18n="footer-copy">&copy; 2026 Clínica Veterinária Gato Escondido. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- Service Detail Modal -->
+    <div id="serviceModal" class="modal">
+      <div class="modal-content modal-lg">
+        <span class="close-service-modal">&times;</span>
+        <div class="modal-grid">
+          <div class="modal-image-container">
+            <img id="serviceModalImg" class="modal-main-img" src="" alt="Serviço">
+          </div>
+          <div class="modal-info">
+            <h2 id="serviceModalTitle">Título do Serviço</h2>
+            <div class="modal-divider"></div>
+            <p id="serviceModalDesc" class="service-full-desc">Descrição completa do serviço.</p>
+            
+            <div class="booking-zone">
+              <div id="bookingMainContent">
+                <button id="bookServiceMain" class="btn btn-primary" data-i18n="modal-book-main">Marcar Consulta</button>
+              </div>
+              
+              <div id="bookingOptions" class="booking-options hidden">
+                <p class="booking-choice-text" data-i18n="modal-book-choice">Como prefere contactar-nos?</p>
+                <div class="options-grid">
+                  <a href="tel:963349053" class="option-btn call">
+                    <span class="icon">📞</span>
+                    <span data-i18n="modal-book-call">Ligar</span>
+                  </a>
+                  <a href="https://wa.me/351963349053" target="_blank" class="option-btn whatsapp">
+                    <span class="icon">💬</span>
+                    <span data-i18n="modal-book-wa">WhatsApp</span>
+                  </a>
+                </div>
+                <button id="backToBook" class="back-link" data-i18n="modal-book-back">← Voltar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Member Modal -->
+    <div id="teamModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-grid">
+          <div class="modal-image-container">
+            <img id="modalImg" class="modal-main-img" src="" alt="Team Member">
+          </div>
+          <div class="modal-info">
+            <h2 id="modalName">Nome</h2>
+            <p id="modalRole" class="modal-role">Cargo</p>
+            <div class="modal-divider"></div>
+            <p id="modalBio" class="modal-bio">Bio</p>
+            <div class="modal-hobbies-container">
+              <strong>Hobbies:</strong> <span id="modalHobbies"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+      <span class="close-lightbox">&times;</span>
+      <img class="lightbox-content" id="lightboxImg">
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/351963349053" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+      <svg width="35" height="35" viewBox="0 0 24 24" fill="white">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.808 1.694 5.384l-.993 3.634 3.788-.987zm11.387-5.477c-.31-.156-1.834-.905-2.119-1.008-.285-.104-.493-.156-.7.156-.207.312-.801 1.008-.981 1.216-.18.209-.36.234-.67.079-.31-.156-1.31-.483-2.496-1.538-.922-.824-1.544-1.842-1.725-2.153-.18-.312-.019-.481.136-.636.14-.139.31-.312.466-.469.156-.156.208-.26.311-.469.104-.208.052-.39-.026-.547-.078-.156-.7-1.692-.958-2.316-.252-.607-.509-.524-.7-.534-.18-.008-.388-.01-.597-.01s-.547.078-.832.39c-.285.312-1.089 1.066-1.089 2.601 0 1.535 1.115 3.018 1.271 3.226.156.208 2.193 3.35 5.312 4.697.741.32 1.32.512 1.769.654.745.237 1.423.204 1.958.125.597-.088 1.834-.75 2.093-1.474.258-.724.258-1.344.181-1.474-.078-.131-.285-.209-.595-.365z"/>
+      </svg>
+      <span class="whatsapp-tooltip">Dúvidas? Fale connosco!</span>
+    </a>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
