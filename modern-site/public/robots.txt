@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gato-escondido.pt/sitemap.xml
+Sitemap: https://www.gatoescondido.com/sitemap.xml
