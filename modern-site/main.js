@@ -22,43 +22,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Instagram Feed Logic
+  // Instagram Feed Logic (Optimized with Lazy Loading)
   const instaGrid = document.getElementById('insta-feed');
   if (instaGrid) {
-    fetch('https://feeds.behold.so/qp0v4rwzcjNHNy0krpGQ')
-      .then(response => response.json())
-      .then(data => {
-        instaGrid.innerHTML = ''; // Clear loader
-        // Take last 4 posts
-        const posts = data.posts.slice(0, 4);
-        
-        posts.forEach(post => {
-          const postElement = document.createElement('a');
-          postElement.href = post.permalink;
-          postElement.target = '_blank';
-          postElement.className = 'insta-item';
+    const loadInstaFeed = () => {
+      fetch('https://feeds.behold.so/qp0v4rwzcjNHNy0krpGQ')
+        .then(response => response.json())
+        .then(data => {
+          instaGrid.innerHTML = ''; // Clear loader
+          const posts = data.posts.slice(0, 4);
           
-          const imgUrl = (post.mediaType === 'VIDEO' || post.isReel) ? post.thumbnailUrl : post.mediaUrl;
-          const isVideo = post.mediaType === 'VIDEO' || post.isReel;
-          
-          const viewText = translations[currentLang]["insta-view"] || "Ver no Instagram";
-          
-          postElement.innerHTML = `
-            <img src="${imgUrl}" alt="Instagram post" loading="lazy">
-            <div class="insta-overlay">
-              <span class="insta-icon">${isVideo ? '▶️' : '📸'}</span>
-              <span data-i18n="insta-view">${viewText}</span>
-            </div>
-            ${isVideo ? '<div class="video-tag">Reel</div>' : ''}
-          `;
-          instaGrid.appendChild(postElement);
+          posts.forEach(post => {
+            const postElement = document.createElement('a');
+            postElement.href = post.permalink;
+            postElement.target = '_blank';
+            postElement.className = 'insta-item';
+            
+            const imgUrl = (post.mediaType === 'VIDEO' || post.isReel) ? post.thumbnailUrl : post.mediaUrl;
+            const isVideo = post.mediaType === 'VIDEO' || post.isReel;
+            const viewText = translations[currentLang]["insta-view"] || "Ver no Instagram";
+            
+            postElement.innerHTML = `
+              <img src="${imgUrl}" alt="Instagram post" loading="lazy">
+              <div class="insta-overlay">
+                <span class="insta-icon">${isVideo ? '▶️' : '📸'}</span>
+                <span data-i18n="insta-view">${viewText}</span>
+              </div>
+              ${isVideo ? '<div class="video-tag">Reel</div>' : ''}
+            `;
+            instaGrid.appendChild(postElement);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching Instagram feed:', error);
+          const errorText = translations[currentLang]["insta-error"] || "Não foi possível carregar o feed.";
+          instaGrid.innerHTML = `<p class="insta-loader">${errorText}</p>`;
         });
-      })
-      .catch(error => {
-        console.error('Error fetching Instagram feed:', error);
-        const errorText = translations[currentLang]["insta-error"] || "Não foi possível carregar o feed.";
-        instaGrid.innerHTML = `<p class="insta-loader">${errorText}</p>`;
-      });
+    };
+
+    // Only load when visible
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadInstaFeed();
+        observer.disconnect(); // Only load once
+      }
+    }, { threshold: 0.1 });
+    observer.observe(instaGrid);
   }
   
   // Smooth scroll for anchor links
