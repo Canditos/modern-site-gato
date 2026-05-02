@@ -1,4 +1,3 @@
-import './style.css';
 import { translations } from './translations.js';
 
 document.addEventListener('DOMContentLoaded', () => {
