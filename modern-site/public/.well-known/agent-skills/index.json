@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agentskills.io/discovery-index-schema.json",
+  "skills": [
+    {
+      "name": "Clinic Information",
+      "type": "documentation",
+      "description": "General information about Gato Escondido Veterinary Clinic services, team, and contact info.",
+      "url": "https://www.gatoescondido.com/",
+      "sha256": ""
+    }
+  ]
+}

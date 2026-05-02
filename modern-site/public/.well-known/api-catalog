@@ -1,0 +1,16 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.gatoescondido.com/",
+      "rel": "service-doc",
+      "href": "https://www.gatoescondido.com/#servicos",
+      "type": "text/html"
+    },
+    {
+      "anchor": "https://www.gatoescondido.com/",
+      "rel": "api-catalog",
+      "href": "https://www.gatoescondido.com/.well-known/api-catalog",
+      "type": "application/linkset+json"
+    }
+  ]
+}

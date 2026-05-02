@@ -409,4 +409,34 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // --- WebMCP (Agent Discovery) ---
+  if ('modelContext' in navigator) {
+    navigator.modelContext.provideContext({
+      tools: [
+        {
+          name: "get_clinic_info",
+          description: "Get general information about Gato Escondido Veterinary Clinic, including opening hours and contacts.",
+          inputSchema: { type: "object", properties: {} },
+          execute: async () => {
+            return {
+              hours: { "Seg-Sex": "10h-20h", "Sábado": "10h-19h", "Domingos": "Encerrado" },
+              contacts: { phone: "+351 211 973 277", address: "Palmela" },
+              website: "https://www.gatoescondido.com"
+            };
+          }
+        },
+        {
+          name: "list_services",
+          description: "List all veterinary services provided by the clinic.",
+          inputSchema: { type: "object", properties: {} },
+          execute: async () => {
+            return {
+              services: ["Medicina Preventiva", "Clínica Geral", "Análises Clínicas", "Cirurgia", "Internamento", "Ecografia", "Ortopedia", "Odontologia"]
+            };
+          }
+        }
+      ]
+    });
+  }
 });
