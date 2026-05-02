@@ -38,16 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
           postElement.target = '_blank';
           postElement.className = 'insta-item';
           
-          // Fix for videos/reels: use thumbnailUrl if available, else mediaUrl
           const imgUrl = (post.mediaType === 'VIDEO' || post.isReel) ? post.thumbnailUrl : post.mediaUrl;
-          
           const isVideo = post.mediaType === 'VIDEO' || post.isReel;
+          
+          const viewText = translations[currentLang]["insta-view"] || "Ver no Instagram";
           
           postElement.innerHTML = `
             <img src="${imgUrl}" alt="Instagram post" loading="lazy">
             <div class="insta-overlay">
               <span class="insta-icon">${isVideo ? '▶️' : '📸'}</span>
-              <span>Ver no Instagram</span>
+              <span data-i18n="insta-view">${viewText}</span>
             </div>
             ${isVideo ? '<div class="video-tag">Reel</div>' : ''}
           `;
@@ -56,7 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(error => {
         console.error('Error fetching Instagram feed:', error);
-        instaGrid.innerHTML = '<p class="insta-loader">Não foi possível carregar o feed de Instagram de momento.</p>';
+        const errorText = translations[currentLang]["insta-error"] || "Não foi possível carregar o feed.";
+        instaGrid.innerHTML = `<p class="insta-loader">${errorText}</p>`;
       });
   }
   
@@ -188,6 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "contact-fixed-legal": "Chamada para rede fixa nacional",
       "contact-mobile-legal": "Chamada para rede móvel nacional",
       "contact-follow-label": "Siga-nos",
+      "rating-count": "46 opiniões no Google",
+      "insta-view": "Ver no Instagram",
+      "insta-error": "Não foi possível carregar o feed de Instagram de momento.",
       "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. Todos os direitos reservados."
     },
     en: {
@@ -264,6 +268,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "contact-fixed-legal": "Call to national landline network",
       "contact-mobile-legal": "Call to national mobile network",
       "contact-follow-label": "Follow Us",
+      "rating-count": "46 Google reviews",
+      "insta-view": "View on Instagram",
+      "insta-error": "Could not load the Instagram feed at this time.",
       "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. All rights reserved."
     }
   };
