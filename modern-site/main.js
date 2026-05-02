@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.id === 'navBookBtn' || e.target.id === 'heroBookBtn') {
       document.getElementById('serviceModalTitle').textContent = translations[currentLang]["modal-book-main"];
       document.getElementById('serviceModalDesc').textContent = translations[currentLang]["modal-book-choice"];
-      renderServiceImage('/images/booking_illustration.png', translations[currentLang]["modal-book-main"]);
+      renderServiceImage('/images/booking_illustration.webp', translations[currentLang]["modal-book-main"]);
       serviceModalImageContainer?.classList.add('booking-image');
       showBookingOptions();
       serviceModal.classList.add('show');
