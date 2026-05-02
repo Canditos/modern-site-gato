@@ -273,7 +273,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://static.wixstatic.com/media/718274_2d11670371c34d7d975bca869808453f~mv2.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('/images/hero-bg.webp');
   background-size: cover;
   background-position: center;
   background-attachment: scroll;
