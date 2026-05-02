@@ -27,14 +27,22 @@ async function convertToWebP(filePath) {
   try {
     const srcStat = await stat(filePath);
     
-    // Always convert if the source is JPG/PNG and the destination doesn't exist or we want to re-optimize
-    // For this run, we'll force conversion of files over 100KB to ensure we hit the big ones
-    if (srcStat.size < 10000) { // Skip tiny files
-        skipped++;
-        return;
+    // Always convert and overwrite to ensure resizing is applied
+
+    const metadata = await sharp(filePath).metadata();
+    const isTeam = filePath.includes('team') || ['rita', 'catarina', 'claudia', 'raquel', 'ana', 'marco', 'carla', 'joao'].some(name => filePath.includes(name));
+    
+    let pipeline = sharp(filePath);
+    
+    // Resize team photos to 800px max (still high res for retina)
+    if (isTeam && metadata.width > 800) {
+        pipeline = pipeline.resize(800, null, { withoutEnlargement: true });
+    } else if (metadata.width > 1200) {
+        // Resize other large images to 1200px max
+        pipeline = pipeline.resize(1200, null, { withoutEnlargement: true });
     }
 
-    await sharp(filePath)
+    await pipeline
       .webp({ quality: QUALITY, effort: 6, smartSubsample: true })
       .toFile(outPath);
       
@@ -51,11 +59,7 @@ async function convertToWebP(filePath) {
         console.log(`ℹ️ ${basename(filePath)} → ${basename(outPath)} (No savings)`);
     }
   } catch (err) {
-    if (err.code === 'EEXIST') {
-        skipped++;
-    } else {
-        console.error(`❌ ${filePath}: ${err.message}`);
-    }
+    console.error(`❌ ${filePath}: ${err.message}`);
   }
 }
 

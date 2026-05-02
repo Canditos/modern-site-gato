@@ -13,6 +13,7 @@
     <link rel="alternate" hreflang="en" href="https://gato-escondido.pt/" />
     <link rel="alternate" hreflang="x-default" href="https://gato-escondido.pt/" />
     <link rel="preload" as="image" href="/images/_gatoescondido_final_preto.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/hero-bg.webp" fetchpriority="high" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -106,20 +107,20 @@
         </nav>
         <div class="nav-actions">
         <div class="language-switcher">
-          <button class="lang-btn active" data-lang="pt">
+          <button class="lang-btn active" data-lang="pt" aria-label="Mudar idioma para Português">
             <svg class="flag-icon" viewBox="0 0 640 480"><path fill="#ff0000" d="M0 0h640v480H0z"/><path fill="#006600" d="M0 0h256v480H0z"/><circle cx="256" cy="240" r="120" fill="#ffff00"/><path fill="#ff0000" d="M236 170h40v140h-40z"/><path fill="#000080" d="M241 190h30v100h-30z"/></svg>
             <span>PT</span>
           </button>
-          <button class="lang-btn" data-lang="en">
+          <button class="lang-btn" data-lang="en" aria-label="Change language to English">
             <svg class="flag-icon" viewBox="0 0 640 480"><path fill="#012169" d="M0 0h640v480H0z"/><path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 240l240 178v62h-78L320 301 78 480H0v-62l240-178L0 62V0h75z"/><path fill="#C8102E" d="m424 281 216 159v40L369 281h55zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-54L0 30V0zm0 480 249-184-2 43L48 480H0z"/><path fill="#FFF" d="M241 0v480h158V0H241zM0 161v158h640V161H0z"/><path fill="#C8102E" d="M281 0v480h78V0h-78zM0 201v78h640v-78H0z"/></svg>
             <span>EN</span>
           </button>
         </div>
           <div class="header-socials">
-            <a href="https://www.facebook.com/gatoescondido.vet/" target="_blank" class="header-social-link fb">
+            <a href="https://www.facebook.com/gatoescondido.vet/" target="_blank" class="header-social-link fb" aria-label="Visitar Facebook">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href="https://www.instagram.com/gatoescondido.vet/" target="_blank" class="header-social-link ig">
+            <a href="https://www.instagram.com/gatoescondido.vet/" target="_blank" class="header-social-link ig" aria-label="Visitar Instagram">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
           </div>
@@ -439,8 +440,8 @@
         <div class="slider-wrapper">
           <div class="slider-main">
             <!-- Navigation Arrows -->
-            <button class="slider-btn prev-btn">&#10094;</button>
-            <button class="slider-btn next-btn">&#10095;</button>
+            <button class="slider-btn prev-btn" aria-label="Imagem Anterior">&#10094;</button>
+            <button class="slider-btn next-btn" aria-label="Próxima Imagem">&#10095;</button>
             
             <!-- Slides -->
             <div class="slides-container">
@@ -473,8 +474,8 @@
             <img src="/images/espaco/718274_efe735ae7e594e7abbcd37cdc7369cc4~mv2.webp" class="thumb" data-index="10" alt="Fachada Clínica Gato Escondido" width="100" height="75">
           </div>
         </div>
-        <div style="text-align: center; margin-top: 3rem;">
-          <p style="color: var(--text-muted); font-size: 1.1rem;" data-i18n="space-desc">Um espaço moderno, acolhedor e totalmente equipado para o bem-estar do seu animal de companhia.</p>
+        <div class="space-footer">
+          <p class="space-footer-desc" data-i18n="space-desc">Um espaço moderno, acolhedor e totalmente equipado para o bem-estar do seu animal de companhia.</p>
         </div>
       </div>
     </section>
@@ -620,8 +621,8 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-social">
-          <a href="https://www.facebook.com/gatoescondido.vet/" target="_blank" class="footer-social-link">Facebook</a>
-          <a href="https://www.instagram.com/gatoescondido.vet/" target="_blank" class="footer-social-link">Instagram</a>
+          <a href="https://www.facebook.com/gatoescondido.vet/" target="_blank" class="footer-social-link" aria-label="Facebook">Facebook</a>
+          <a href="https://www.instagram.com/gatoescondido.vet/" target="_blank" class="footer-social-link" aria-label="Instagram">Instagram</a>
         </div>
         <p data-i18n="footer-copy">&copy; 2026 Clínica Veterinária Gato Escondido. Todos os direitos reservados.</p>
         <p class="footer-rgpd" data-i18n="footer-rgpd">
@@ -633,7 +634,7 @@
     <!-- Service Detail Modal -->
     <div id="serviceModal" class="modal">
       <div class="modal-content modal-lg">
-        <span class="close-service-modal">&times;</span>
+        <span class="close-service-modal" aria-label="Fechar">&times;</span>
         <div class="modal-grid">
           <div class="modal-image-container">
             <img id="serviceModalImg" class="modal-main-img" src="" alt="Serviço">
@@ -670,7 +671,7 @@
     <!-- Team Member Modal -->
     <div id="teamModal" class="modal">
       <div class="modal-content">
-        <span class="close-modal">&times;</span>
+        <span class="close-modal" aria-label="Fechar Modal">&times;</span>
         <div class="modal-grid">
           <div class="modal-image-container">
             <img id="modalImg" class="modal-main-img" src="" alt="Team Member">
@@ -695,7 +696,7 @@
     </div>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/351963349053" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/351963349053" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
       <svg width="35" height="35" viewBox="0 0 24 24" fill="white">
         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.808 1.694 5.384l-.993 3.634 3.788-.987zm11.387-5.477c-.31-.156-1.834-.905-2.119-1.008-.285-.104-.493-.156-.7.156-.207.312-.801 1.008-.981 1.216-.18.209-.36.234-.67.079-.31-.156-1.31-.483-2.496-1.538-.922-.824-1.544-1.842-1.725-2.153-.18-.312-.019-.481.136-.636.14-.139.31-.312.466-.469.156-.156.208-.26.311-.469.104-.208.052-.39-.026-.547-.078-.156-.7-1.692-.958-2.316-.252-.607-.509-.524-.7-.534-.18-.008-.388-.01-.597-.01s-.547.078-.832.39c-.285.312-1.089 1.066-1.089 2.601 0 1.535 1.115 3.018 1.271 3.226.156.208 2.193 3.35 5.312 4.697.741.32 1.32.512 1.769.654.745.237 1.423.204 1.958.125.597-.088 1.834-.75 2.093-1.474.258-.724.258-1.344.181-1.474-.078-.131-.285-.209-.595-.365z"/>
       </svg>
