@@ -201,7 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "rating-count": "46 opiniões no Google",
       "insta-view": "Ver no Instagram",
       "insta-error": "Não foi possível carregar o feed de Instagram de momento.",
-      "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. Todos os direitos reservados."
+      "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. Todos os direitos reservados.",
+      "footer-rgpd": "Este site não recolhe dados pessoais dos seus visitantes. Em conformidade com o RGPD (Regulamento UE 2016/679), o tratamento de dados clínicos dos nossos clientes é realizado de forma segura, confidencial e exclusivamente para fins de prestação de cuidados veterinários."
     },
     en: {
       "nav-home": "Home", "nav-services": "Services", "nav-space": "The Space", "nav-team": "Team", "nav-contacts": "Contacts",
@@ -280,7 +281,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "rating-count": "46 Google reviews",
       "insta-view": "View on Instagram",
       "insta-error": "Could not load the Instagram feed at this time.",
-      "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. All rights reserved."
+      "footer-copy": "© 2026 Clínica Veterinária Gato Escondido. All rights reserved.",
+      "footer-rgpd": "This website does not collect personal data from its visitors. In compliance with GDPR (EU Regulation 2016/679), the processing of clinical data of our clients is carried out securely, confidentially, and exclusively for the purpose of providing veterinary care."
     }
   };
 
