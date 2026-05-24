@@ -574,8 +574,11 @@
           </div>
         </div>
         <div id="insta-feed" class="insta-grid-4">
-          <!-- Photos will be loaded here via JS -->
-          <div class="insta-loader" data-i18n="insta-loading">A carregar momentos...</div>
+          <!-- Skeletons to reserve space and prevent layout shifts (CLS) -->
+          <div class="insta-item skeleton"></div>
+          <div class="insta-item skeleton"></div>
+          <div class="insta-item skeleton"></div>
+          <div class="insta-item skeleton"></div>
         </div>
       </div>
     </section>

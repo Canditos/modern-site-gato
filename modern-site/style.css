@@ -1646,6 +1646,17 @@ a {
   color: var(--text-muted);
 }
 
+.insta-item.skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: loading-pulse 1.5s infinite;
+}
+
+@keyframes loading-pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 @media (max-width: 992px) {
   .insta-grid-4 { grid-template-columns: repeat(2, 1fr); }
   .review-prev { left: 12px; }
