@@ -81,16 +81,26 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        const headerHeight = navbar?.offsetHeight || 80;
-        const targetTop = targetElement.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({
-          top: Math.max(targetTop - headerHeight, 0),
-          behavior: 'smooth'
-        });
-        
-        // Update active nav link
+        // Update active nav link immediately
         document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
         this.classList.add('active');
+
+        // Defer scroll to allow mobile menu closing transition and body overflow changes to complete
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            const headerHeight = navbar?.offsetHeight || 80;
+            let targetTop = 0;
+            let el = targetElement;
+            while (el) {
+              targetTop += el.offsetTop || 0;
+              el = el.offsetParent;
+            }
+            window.scrollTo({
+              top: Math.max(targetTop - headerHeight, 0),
+              behavior: 'smooth'
+            });
+          }, 50);
+        });
       }
     });
   });
@@ -124,14 +134,33 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Highlight active section
     const sections = document.querySelectorAll('section');
-    const scrollPos = window.scrollY + 100;
+    const scrollPos = window.scrollY + 120; // offset for navbar height
     
     sections.forEach(section => {
+      const id = section.getAttribute('id');
+      if (!id) return;
+      
+      const targetLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+      if (!targetLink) return; // Ignore sections without nav links (like #instagram)
+
+      // Calculate absolute offsetTop recursively
+      let top = 0;
+      let el = section;
+      while (el) {
+        top += el.offsetTop || 0;
+        el = el.offsetParent;
+      }
+      const height = section.offsetHeight;
+
+      if (scrollPos >= top && scrollPos < top + height) {
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+        targetLink.classList.add('active');
+      }
     });
   });
 
   // --- State & Translations ---
-  let currentLang = 'pt';
+  let currentLang = localStorage.getItem('preferredLang') || 'pt';
 
   // --- Modal Elements ---
   const teamModal = document.getElementById('teamModal');
@@ -290,6 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const switchLang = (lang) => {
     if (!translations[lang]) return;
     currentLang = lang;
+    localStorage.setItem('preferredLang', lang);
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (translations[lang][key]) {
@@ -312,6 +342,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en-US';
   };
+
+  // Set initial language on load
+  switchLang(currentLang);
 
   document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => switchLang(btn.getAttribute('data-lang'))));
 
